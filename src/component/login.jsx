@@ -3,57 +3,43 @@
 import React, { useState } from 'react';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = () => {
-    // Add your validation logic here
-    // For simplicity, this example checks if both fields are non-empty
-    if (username && password) {
-      alert('Login successful!');
-      // You can redirect the user to another page or perform other actions here
-    } else {
-      alert('Please enter both username and password');
-    }
-  };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <form className="bg-white p-8 rounded shadow-md">
-        <label className="block mb-2" htmlFor="username">
-          Username:
-        </label>
-        <input
-          className="w-full p-2 mb-4 border rounded"
-          type="text"
-          id="username"
-          name="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
+    <div className="main">
+      <input type="checkbox" id="chk" aria-hidden="true" />
 
-        <label className="block mb-2" htmlFor="password">
-          Password:
-        </label>
-        <input
-          className="w-full p-2 mb-4 border rounded"
-          type="password"
-          id="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+      <div className="signup">
+        <form>
+          <label htmlFor="chk" aria-hidden="true">
+            Sign up
+          </label>
+          <input type="text" name="firstName" placeholder="First Name" required="" />
+          <input type="text" name="lastName" placeholder="Last Name" required="" />
+          <input type="tel" name="mobileNumber" placeholder="Mobile Number" required="" />
+          <input type="date" name="dob" required="" />
+          <select name="gender" placeholder="Mobile Number" required="">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <input type="text" name="collegeName" placeholder="College Name" required="" />
+          <input type="text" name="department" placeholder="Department Name" required="" />
+          <input type="email" name="email" placeholder="Email" required="" />
+          <input type="password" name="password" placeholder="Password" required="" />
+          <button>Sign up</button>
+        </form>
+      </div>
 
-        <button
-          className="bg-green-500 text-white py-2 px-4 rounded"
-          type="button"
-          onClick={handleLogin}
-        >
-          Login
-        </button>
-      </form>
+      <div className="login">
+        <form>
+          <label htmlFor="chk" aria-hidden="true">
+            Login
+          </label>
+          <input type="email" name="email" placeholder="Email" required="" />
+          <input type="password" name="pswd" placeholder="Password" required="" />
+          <button>Login</button>
+        </form>
+      </div>
     </div>
   );
 };
