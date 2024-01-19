@@ -1,10 +1,11 @@
 
 import './App.css';
+import Login from "./component/login.jsx";
 
 function App() {
   return (
     <div className="App">
-      <h1>Jay shree ram</h1>
+      <Login />
     </div>
   );
 }
