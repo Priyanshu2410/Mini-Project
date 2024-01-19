@@ -6,7 +6,7 @@ import Login from "./component/login.jsx"; // Adjust the path based on the actua
 function App() {
   return (
     <>
-      <h1>Mini Project</h1>
+    
       <Routes>
         <Route path="/login" element={<Login />} />        
       </Routes>
