@@ -1,11 +1,44 @@
 
 // src/Components/Login.js
 import React from "react";
+import { useState } from "react"
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [gender, setGender] = useState("");
+  const [college, setCollage] = useState("");
+  const [dept, setDept] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    axios.post("http://localhost:5000/register",{firstName,lastName,phone,email,password,gender,college,dept})
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+
+
+    // console.log(name, Password, email);
+    // let result = await fetch("http://localhost:5000/register", {
+    //   method: "post",
+    //   body: JSON.stringify({firstName,lastName,phone,email,gender,collage,dept,password}),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // });
+    // result = await result.json();
+    // console.log(result);
+    // localStorage.setItem("user",JSON.stringify(result))
+  };
+
+
   return (
     <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
       <div className="md:w-1/3 max-w-sm">
@@ -26,76 +59,95 @@ const Register = () => {
               className="flex justify-center items-center w-full"
             />
           </button>
-          
+
         </div>
         <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
           <p className="mx-4 mb-0 text-center font-semibold text-slate-500">
             Or
           </p>
         </div>
-        <input
-          className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded"
-          type="text"
-          placeholder="Enter your firstName"
-        />
-        <input
-          className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
-          type="text"
-          placeholder="Enter your lastname"
-        />
-        <input
-          className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
-          type="phone"
-          placeholder="Enter your phone number"
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded"
+            type="text"
+            placeholder="Enter your firstName"
+            onChange={(e) => setFirstName(e.target.value)}
+            value={firstName}
+          />
+          <input
+            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+            type="text"
+            placeholder="Enter your lastname"
+            onChange={(e) => setLastName(e.target.value)}
+            value={lastName}
+          />
+          <input
+            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+            type="phone"
+            placeholder="Enter your phone number"
+            onChange={(e) => setPhone(e.target.value)}
+            value={phone}
+          />
 
-        <input
-          className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
-          type="email"
-          placeholder="Email Address"
-        />
-         <select name="gender" required=""
-         className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4">
-              <option value="" disabled selected>Select gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-        </select>
-         <select name="collage" required=""
-         className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4">
-              <option value="" disabled selected>Select your collage</option>
-              <option value="male">ADIT</option>
-              <option value="gcet">GCET</option>
-              <option value="mbit">MBIT</option>
-              <option value="other">OTHER</option>
-        </select>
-         <select name="dept" required=""
-         className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4">
-              <option value="" disabled selected>Select your department</option>
-              <option value="IT">Information Technology</option>
-              <option value="cs">Computer Engineering </option>
-              <option value="aids">Artificial Intelligence & Data Science (AI&DS)</option>
-              <option value="csd">Computer Engineering and design</option>
-              <option value="other">Other</option>
-        </select>
+          <input
+            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+            type="email"
+            placeholder="Email Address"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+          <select name="gender" required=""
+            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+            onChange={(e) => setGender(e.target.value)}
 
-        <input
-          className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
-          type="password"
-          placeholder="Password"
-        />
-        <div className="mt-4 flex justify-between font-semibold text-sm">
-         
-          
-        </div>
-        <div className="text-center md:text-left">
-          <button
-            className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
-            type="submit"
           >
-            Login
-          </button>
-        </div>
+            <option value="" disabled selected>Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <select name="collage" required=""
+            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+            onChange={(e) => setCollage(e.target.value)}
+          >
+            <option value="" disabled selected>Select your collage</option>
+            <option value="male">ADIT</option>
+            <option value="gcet">GCET</option>
+            <option value="mbit">MBIT</option>
+            <option value="other">OTHER</option>
+          </select>
+          <select name="dept" required=""
+            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+            onChange={(e) => setDept(e.target.value)}
+          >
+            <option value="" disabled selected>Select your department</option>
+            <option value="IT">Information Technology</option>
+            <option value="cs">Computer Engineering </option>
+            <option value="aids">Artificial Intelligence & Data Science (AI&DS)</option>
+            <option value="csd">Computer Engineering and design</option>
+            <option value="other">Other</option>
+          </select>
+
+          <input
+            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+          <div className="mt-4 flex justify-between font-semibold text-sm">
+
+
+          </div>
+          <div className="text-center md:text-left">
+            <button
+              className="mt-4 bg-blue-600 hover:bg-blue-700 px-4 py-2 text-white uppercase rounded text-xs tracking-wider"
+              type="submit"
+            >
+              Register
+            </button>
+          </div>
+        </form>
         <div className="mt-4 font-semibold text-sm text-slate-500 text-center md:text-left">
           Don&apos;t have an account?{" "}
           <Link
