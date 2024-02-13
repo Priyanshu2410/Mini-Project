@@ -9,6 +9,8 @@ import Register from "./Pages/register/index.jsx";
 import User from "./Pages/user/index.jsx";
 import Home from "./Pages/user/home.jsx";
 import Codehub from "./Pages/user/codehub.jsx";
+import Coordinator from "./Pages/coordinator/index.jsx";
+import ContactUs from "./Pages/user/contact.jsx";
 
 function App() {
   return (
@@ -21,7 +23,9 @@ function App() {
         <Route path="/user" element={<User />}>
           <Route path="home" element={<Home />} />
           <Route path="codehub" element={<Codehub />} />
+          <Route path="contactus" element={<ContactUs />} />
         </Route>
+        <Route path="/coordinator" element={<Coordinator />} />
       </Routes>
     </>
   );

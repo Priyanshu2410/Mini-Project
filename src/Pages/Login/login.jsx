@@ -17,7 +17,15 @@ const Login = () => {
       console.log(result.data);
       if (result.status === 200) {
         localStorage.setItem("data", JSON.stringify(result.data));
-        navigate("/user/home");
+        if(result.data.role === "coordinator")
+        {
+          navigate("/coordinator");
+        }
+        else
+        {
+          navigate("/user/home");
+        
+        }
       }
       else{ 
         alert("Invalid Credentials")
