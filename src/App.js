@@ -8,6 +8,7 @@ import Register from "./Pages/register/index.jsx";
 //user
 import User from "./Pages/user/index.jsx";
 import Home from "./Pages/user/home.jsx";
+import Codehub from "./Pages/user/codehub.jsx";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
 
         <Route path="/user" element={<User />}>
           <Route path="home" element={<Home />} />
+          <Route path="codehub" element={<Codehub />} />
         </Route>
       </Routes>
     </>
