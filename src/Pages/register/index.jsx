@@ -20,23 +20,32 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5000/register",{firstName,lastName,phone,email,password,gender,college,dept})
-    .then(result => console.log(result))
-    .catch(err => console.log(err))
-
-
-    // console.log(name, Password, email);
-    // let result = await fetch("http://localhost:5000/register", {
-    //   method: "post",
-    //   body: JSON.stringify({firstName,lastName,phone,email,gender,collage,dept,password}),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // });
-    // result = await result.json();
-    // console.log(result);
-    // localStorage.setItem("user",JSON.stringify(result))
+  
+    try {
+      const result = await axios.post("http://localhost:5000/register", {
+        firstName,
+        lastName,
+        phone,
+        email,
+        password,
+        gender,
+        college,
+        dept,
+      });
+  
+      console.log(result);
+      navigate("/login");
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        // Handle the case where the email is already registered
+        console.log("Email is already registered. Please use a different email.");
+      } else {
+        // Handle other errors
+        console.error("An error occurred during registration:", error.message);
+      }
+    }
   };
+  
 
 
   return (
