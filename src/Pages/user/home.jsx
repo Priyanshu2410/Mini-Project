@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import RunSidebar from "../../component/runsidebar";
 
 const Home = () => {
   const [user, setUser] = useState({});
@@ -11,7 +12,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="pt-[87px] bg-[#d6d4d5] bg-opacity-80 h-[800px]">
+    <div className="pt-[87px] bg-[#d6d4d5] bg-opacity-80 ">
       <div className="flex mt-10 ml-5">
         <div className='flex items-center'>
           <span className='text-3xl font-bold mr-3'>Welcome,</span>
@@ -27,6 +28,10 @@ const Home = () => {
         </div>
         <img src="/userhome.png" alt="" className="ml-5 w-[550px]" />
       </div>
+      <div className="mt-[180px]">
+        <RunSidebar />
+      </div>
+
 
     </div>
   );

@@ -1,10 +1,11 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    './src/**/*.{js,ts,jsx,tsx}', // adjust based on your project structure
   ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+  plugins: [
+    require('tailwindcss'),
+    require('autoprefixer'),
+    require('postcss-preset-env'),
+  ],
+};
