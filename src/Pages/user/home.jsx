@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RunSidebar from "../../component/runsidebar";
+import Coures from "./coures";
 
 const Home = () => {
   const [user, setUser] = useState({});
@@ -17,8 +18,12 @@ const Home = () => {
         <div className="flex mt-10 ml-5">
           <div className='flex items-center'>
             <span className='text-3xl font-bold mr-3'>Welcome,</span>
-            <h1 className='text-3xl font-bold'>{user.firstName}</h1>
+            {user?.firstName && (
+              <h1 className='text-3xl font-bold'>{user.firstName}</h1>
+            )}
           </div>
+
+
         </div>
         <div className="flex justify-end items-center font-sans">
           <div className="flex flex-col items-center">
@@ -35,11 +40,17 @@ const Home = () => {
       </div>
 
       <div className="mt-[20px] text-center">
-  <h1 className="text-4xl font-bold text-gray-700 transition-all duration-300 hover:text-[#1a4e63] hover:transform hover:translate-y-1">
-    Collage of Brilliance: Where Expert Minds Converge
-  </h1>
-  <RunSidebar />
-</div>
+        <h1 className="text-4xl font-bold text-gray-700 transition-all duration-300 hover:text-[#1a4e63] hover:transform hover:translate-y-1">
+          Collage of Brilliance: Where Expert Minds Converge
+        </h1>
+        <RunSidebar />
+      </div>
+      <div className="mt-[20px] text-center">
+        <h1 className="text-4xl font-bold text-gray-700 transition-all duration-300 hover:text-[#1a4e63] hover:transform hover:translate-y-1">
+          Our courses
+        </h1>
+        <Coures />
+      </div>
 
 
 
