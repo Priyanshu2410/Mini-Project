@@ -14,23 +14,23 @@ const Courses = () => {
         },
         {
             title: "Introduction to NodeJS",
-            description: "React is a popular frontend library used for creating UI components.",
+            description: "Node.js is a JavaScript runtime for server-side development.",
             imageSrc: "https://www.bleepstatic.com/content/hl-images/2020/08/04/nodejs-header.jpg",
         },
         {
             title: "Introduction to arduino",
-            description: "React is a popular frontend library used for creating UI components.",
+            description: "Arduino: Open-source platform for electronics prototyping and programming.",
             imageSrc: "https://images.unsplash.com/photo-1603732551658-5fabbafa84eb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
         {
-            title: "Introduction to React 4",
-            description: "React is a popular frontend library used for creating UI components.",
-            imageSrc: "/CVM logo.png",
+            title: "Introduction to AI",
+            description: "AI: Creating intelligent machines that mimic human cognitive functions.",
+            imageSrc: "https://images.unsplash.com/photo-1697577418970-95d99b5a55cf?q=80&w=1896&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
         {
-            title: "Introduction to React 4",
-            description: "React is a popular frontend library used for creating UI components.",
-            imageSrc: "/CVM logo.png",
+            title: "Introduction to ML",
+            description: "ML: Teaching machines to learn and improve from data.",
+            imageSrc: "https://plus.unsplash.com/premium_photo-1682124651258-410b25fa9dc0?q=80&w=1921&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         },
         // Add more course data as needed
     ];

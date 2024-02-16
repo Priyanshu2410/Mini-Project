@@ -67,32 +67,30 @@ export default function Footer() {
                 CVM UNIVERSITY
             </h6>
             <p>
-              Here you can use rows and columns to organize your footer
-              content. Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit.
+              The CVM Education Portal is an online platform provided by CVM University to facilitate easy access to a wide range of educational resources. It offers a variety of courses, ranging from academic subjects to practical skills development, providing an interactive and user-friendly learning experience.
             </p>
           </div>
           {/* <!-- Products section --> */}
           <div className="">
             <h6
               className="mb-4 flex justify-center font-semibold uppercase md:justify-start">
-              Products
+              Our Courses
             </h6>
             <p className="mb-4">
               <a className="text-neutral-600 dark:text-neutral-200"
-              >Angular</a>
+              >Introduction of ReactJs</a>
             </p>
             <p className="mb-4">
               <a className="text-neutral-600 dark:text-neutral-200"
-              >React</a>
+              >Introduction of IOT</a>
             </p>
             <p className="mb-4">
               <a className="text-neutral-600 dark:text-neutral-200"
-              >Vue</a>
+              >Introduction of AI</a>
             </p>
             <p>
               <a className="text-neutral-600 dark:text-neutral-200"
-              >Laravel</a>
+              >Introduction of ML</a>
             </p>
           </div>
           {/* <!-- Useful links section --> */}
@@ -103,15 +101,15 @@ export default function Footer() {
             </h6>
             <p className="mb-4">
               <a className="text-neutral-600 dark:text-neutral-200"
-              >Pricing</a>
+              >Courses</a>
             </p>
             <p className="mb-4">
               <a className="text-neutral-600 dark:text-neutral-200"
-              >Settings</a>
+              >CodeHub</a>
             </p>
             <p className="mb-4">
               <a className="text-neutral-600 dark:text-neutral-200"
-              >Orders</a>
+              >Contact</a>
             </p>
             <p>
               <a className="text-neutral-600 dark:text-neutral-200"
@@ -135,7 +133,7 @@ export default function Footer() {
                 <path
                   d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
               </svg>
-              New York, NY 10012, US
+              Vidhyanagar-388120 Gujarat-india
             </p>
             <p className="mb-4 flex items-center justify-center md:justify-start">
               <svg
@@ -148,7 +146,7 @@ export default function Footer() {
                 <path
                   d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
               </svg>
-              info@example.com
+              adminoffice@cvmu.edu.in
             </p>
             <p className="mb-4 flex items-center justify-center md:justify-start">
               <svg
@@ -161,7 +159,7 @@ export default function Footer() {
                   d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
                   clipRule="evenodd" />
               </svg>
-              + 01 234 567 88
+              + 91 2692-238001
             </p>
             <p className="flex items-center justify-center md:justify-start">
               <svg
