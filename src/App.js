@@ -12,6 +12,10 @@ import Codehub from "./Pages/user/codehub.jsx";
 import Coordinator from "./Pages/coordinator/index.jsx";
 import ContactUs from "./Pages/user/contact.jsx";
 
+
+//coordinator
+import CoordinatorHome from "./Pages/coordinator/home.jsx";
+
 function App() {
   return (
     <>
@@ -25,7 +29,10 @@ function App() {
           <Route path="codehub" element={<Codehub />} />
           <Route path="contactus" element={<ContactUs />} />
         </Route>
-        <Route path="/coordinator" element={<Coordinator />} />
+        <Route path="/coordinator" element={<Coordinator />}>
+          <Route path="home" element={<CoordinatorHome />} />
+
+        </Route>
       </Routes>
     </>
   );

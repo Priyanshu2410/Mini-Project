@@ -14,59 +14,54 @@ const Faq = () => {
           <div className="container flex flex-col justify-center px-4 py-8 mx-auto">
             <div className="space-y-4 cursor-pointer">
               <details className="w-[800px] rounded-lg ring-1 ring-darkvl md:w-[600px] sm:w-[400px] xs:w-[300px]">
-                <summary className="px-4 py-6">What is Trip Yaatra?</summary>
+                <summary className="px-4 py-6">What is CVM Education Portal?</summary>
                 <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-600">
-                  Trip Yaatra is a contemporary travel collective offering comprehensive travel packages across India and internationally. We curate exceptional travel itineraries tailored for group travel, fostering connections among individuals with similar interests. Our spectrum of services encompasses road trips, trekking ventures, corporate excursions, and personalized tour packages.
+                The CVM Education Portal is an online platform provided by CVM University to facilitate easy access to a wide range of educational resources. It offers a variety of courses, ranging from academic subjects to practical skills development, providing an interactive and user-friendly learning experience.
                 </p>
               </details>
               <details className="w-[800px] rounded-lg ring-1 ring-darkvl md:w-[600px] sm:w-[400px] xs:w-[300px]">
-                <summary className="px-4 py-6">What sets Trip Yaatra apart from other online travel platforms?</summary>
+                <summary className="px-4 py-6">How do I access the CVM Education Portal?</summary>
                 <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-600">
-                  At Trip Yaatra, we embody our principles in action. Our in-house operations team meticulously oversees every aspect of our trips from start to finish. With no involvement of third parties, we ensure transparency and reliability in our services. When we affirm that your travel arrangements are entirely our commitment, we stand by our word. This fundamental approach sets us distinctly apart from others in the industry.
+                To access the CVM Education Portal, simply visit our website and click on the "Login" or "Sign Up" button. If you're a new user, you'll need to create an account. If you're an existing user, enter your credentials to log in and explore the available courses and features.
                 </p>
               </details>
               <details className="w-[800px] rounded-lg ring-1 ring-darkvl md:w-[600px] sm:w-[400px] xs:w-[300px]">
-                <summary className="px-4 py-6">How can I proceed with booking a trip through Trip Yaatra?</summary>
+                <summary className="px-4 py-6">What types of courses does CVM University offer on the portal?</summary>
                 <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-600">
-                  It's as effortless as a stroll in the park. You have the option to book our trips directly from our website or submit your travel inquiry through our portal or social media channels. Our destination experts will promptly reach out to you, offering comprehensive trip details and assisting you through the booking procedure.
+                CVM University offers a diverse range of courses on the portal, including academic courses, professional development, and practical skills training. These courses cover various subjects and are designed to cater to different interests and educational needs.
                 </p>
               </details>
               <details className="w-[800px] rounded-lg ring-1 ring-darkvl md:w-[600px] sm:w-[400px] xs:w-[300px]">
-                <summary className="px-4 py-6">Is it possible to modify the date after making a booking?</summary>
+                <summary className="px-4 py-6">How do I find and enroll in courses on the portal?</summary>
                 <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-600">
-                  Certainly, alterations to trip dates can be accommodated up to 15 days prior to the departure date. However, this is subject to slot availability for the respective dates.
+                To find and enroll in courses, log in to your account and browse the course catalog. You can use filters or search by keywords to narrow down your options. Once you find a course of interest, click on it to view details and enroll. Follow the prompts to complete the enrollment process.
                 </p>
               </details>
               <details className="w-[800px] rounded-lg ring-1 ring-darkvl md:w-[600px] sm:w-[400px] xs:w-[300px]">
-                <summary className="px-4 py-6">What do you mean by community trips?</summary>
+                <summary className="px-4 py-6">What is CodeHub, and how does it work?</summary>
                 <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-600">
-                  Community trips represent distinctive travel experiences where individuals journey alongside like-minded travel enthusiasts to explore captivating destinations. Throughout these trips, participants engage in interactive activities, foster connections with fellow travelers, and deeply engage in authentic local experiences.
+                CodeHub is a feature on the CVM Education Portal dedicated to coding and programming resources. It provides interactive coding challenges, projects, and learning materials. Users can practice coding skills, submit their code for feedback, and engage in a supportive learning community.
                 </p>
               </details>
               <details className="w-[800px] rounded-lg ring-1 ring-darkvl md:w-[600px] sm:w-[400px] xs:w-[300px]">
-                <summary className="px-4 py-6">Are group trips deemed safe and suitable for solo female travelers</summary>
+                <summary className="px-4 py-6">How do I update my profile information on the portal?</summary>
                 <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-600">
-                  The safety and security of our travelers remain our foremost concern at Trip Yaatra. Specifically for solo female travelers, we take additional measures to ensure their utmost safety and comfort throughout the journey. Our trained team leaders are adept at creating a hassle-free and secure environment for all our travelers, especially women.
+                To update your profile information, log in to your account and navigate to the profile settings. Here, you can edit and save changes to your personal details, including your name, contact information, and profile picture.
                 </p>
               </details>
               <details className="w-[800px] rounded-lg ring-1 ring-darkvl md:w-[600px] sm:w-[400px] xs:w-[300px]">
-                <summary className="px-4 py-6">As a solo traveler, which trip would be suitable for me?</summary>
+                <summary className="px-4 py-6">Is there a fee for enrolling in courses on the portal?</summary>
                 <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-600">
-                  You are welcome to join any of our community trips. These journeys provide an excellent opportunity for solo travelers to connect with individuals from diverse backgrounds. Additionally, they are budget-friendly!
+                While some courses on the portal may have a fee associated with them, there are also many free courses available. The fees, if any, vary depending on the course type and content. CVM University aims to provide a mix of affordable and accessible educational options.
                 </p>
               </details>
               <details className="w-[800px] rounded-lg ring-1 ring-darkvl md:w-[600px] sm:w-[400px] xs:w-[300px]">
-                <summary className="px-4 py-6">Is it possible for me to design a customized trip plan based on my preferred destination?</summary>
+                <summary className="px-4 py-6">How can I contact technical support for assistance?</summary>
                 <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-600">
-                  Certainly, we offer a wide range of destinations, and our team of destination experts is available to assist you in creating a tailored itinerary that aligns perfectly with your preferences and needs.
+                If you encounter technical issues or need assistance, you can reach out to our technical support team through the "Contact Us" section on the portal. Provide detailed information about the problem you're facing, and our support team will respond to your inquiry as soon as possible.
                 </p>
               </details>
-              <details className="w-[800px] rounded-lg ring-1 ring-darkvl md:w-[600px] sm:w-[400px] xs:w-[300px]">
-                <summary className="px-4 py-6">Is the price mentioned inclusive of the flight ticket cost?</summary>
-                <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-600">
-                  The prices stated for our domestic group trips do not cover flight tickets. However, for international trips such as Bali and Dubai, we offer travel packages that include flights.
-                </p>
-              </details>
+             
             </div>
           </div>
   

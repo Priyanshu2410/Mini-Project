@@ -1,9 +1,17 @@
 import React from "react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
-const CodHome = () =>{
-    return(
-        <div className="pt-[87px]">
-            <h1>jdhsj</h1>
+
+import { Outlet } from "react-router-dom";
+const CodHome = () => {
+    return (
+        <div className="h-[100%]">
+            <Navbar />
+
+            <Outlet />
+            <Footer />
+
         </div>
     )
 };
