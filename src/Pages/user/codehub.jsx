@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { PiYoutubeLogoFill } from "react-icons/pi";
-
+import { CiLink } from "react-icons/ci";
+import { IoIosArrowDropdown } from "react-icons/io";
+import { IoIosArrowDropdownCircle } from "react-icons/io";
+import Frontend from "./Frontend";
+import Backend from "./Backend";
 const Codehub = () =>{
     
     const[status1,setstatus1]=useState(false);
@@ -99,10 +102,22 @@ const Codehub = () =>{
  
     const[status18,setstatus18]=useState(false);
     const[status18_1,setstatus18_1]=useState(false);
+    const[dsa,setdsa]=useState(true);
+    const[front,setfront]=useState(false);
+    const[backend,setbackend]=useState(false );
 
     return(
         <div className="pt-[87px]">
-        <h1 className="text-6xl w-screen text-center p-3 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400"><b>CVM UNIVERSITY A2Z DSA Course/Sheet</b></h1>
+        <div className="justify-center flex flex-no-wrap text-center bg-white-500 border-b-[3px] border-black">
+            <div className=" w-[20%] m-2 text-center text-3xl flex flex-row" onClick={()=>{setdsa(true);setfront(false);setbackend(false)}}>DSA SHEET{dsa?<IoIosArrowDropdownCircle className="text-center m-1"/>:<IoIosArrowDropdown className="text-center m-1"/>}</div>
+            <div className=" w-[20%] m-2 text-center text-3xl flex flex-row" onClick={()=>{setfront(true);setdsa(false);setbackend(false)}}>FRONTEND{front?<IoIosArrowDropdownCircle className="text-center m-1"/>:<IoIosArrowDropdown className="text-center m-1"/>}</div>
+            <div className=" w-[20%] m-2 text-center text-3xl flex flex-row" onClick={()=>{setbackend(true);setfront(false);setdsa(false)}}>BACKEND{backend?<IoIosArrowDropdownCircle className="text-center m-1"/>:<IoIosArrowDropdown className="text-center m-1"/>}</div>
+        </div>
+        <div>
+        {
+            dsa?<>
+       
+        <h1 className="text-6xl text-center p-3 bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-200"><b>CVM UNIVERSITY A2Z DSA Course/Sheet</b></h1>
     
             <div>
                 <div className="bg-white m-5 mt-10 mr-0 grid gap-4">
@@ -118,39 +133,39 @@ const Codehub = () =>{
                                         {
                                             status1_1?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                         <div className="flex-shrink-0">User Input / Output</div>
-                                                        <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                        <a href="https://www.codingninjas.com/studio/problems/find-character-case_58513"><div className=" flex-shrink-0 w-[50px] flex items-center justify-center w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                     </div>
                                                     <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                         <div className="flex-shrink-0">DATA TYPES</div>
-                                                        <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                        <a href="https://www.codingninjas.com/studio/problems/data-type_8357232"><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                     </div>
                                                     <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                         <div className="flex-shrink-0">IF ELSE STATEMENTS</div>
-                                                        <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                        <a href="https://www.codingninjas.com/studio/problems/if-else-decision-making_8357235"><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                     </div>
                                                     <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                         <div className="flex-shrink-0">SWITCH STATEMENT</div>
-                                                        <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                        <a href="https://www.codingninjas.com/studio/problems/switch-case-statement_8357244"><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                     </div>
                                                     <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                         <div className="flex-shrink-0">WHAT ARE ARRAYS, STRINGS?</div>
-                                                        <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                        <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                     </div>
                                                     <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                         <div className="flex-shrink-0">FOR LOOPS</div>
-                                                        <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                        <a href="https://www.codingninjas.com/studio/problems/nth-fibonacci-number_74156"><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                     </div>
                                                     <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                         <div className="flex-shrink-0">WHILE LOOPS</div>
-                                                        <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                        <a href="https://www.codingninjas.com/studio/problems/sum-of-even-odd_624650"><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                     </div>
                                                     <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                         <div className="flex-shrink-0">FUNCTIONS (PASS BY REFERENCE/VALUE)</div>
-                                                        <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                        <a href="https://www.codingninjas.com/studio/problems/fa-1-ece_4606261"><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                     </div>
                                                     <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                         <div className="flex-shrink-0">TIME AND SPACE COMPLEXITY</div>
-                                                        <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                        <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                     </div>
 
                                                     </>:null
@@ -163,7 +178,7 @@ const Codehub = () =>{
                                             {
                                                 status1_2?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Patterns</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div></>:null
                                             }
                                         </div>
@@ -174,11 +189,11 @@ const Codehub = () =>{
                                             {
                                                 status1_3?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">c++ standard template library</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Java Collections</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div></>:null
                                             }
                                         </div>
@@ -189,31 +204,31 @@ const Codehub = () =>{
                                             {
                                                 status1_4?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Count Digits</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Reverse a Number</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Check Palindrome</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">GCD Or HCF</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Armstrong Numbers</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Print all Divisors</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Check for Prime</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div></>:null
                                             }
                                         </div>
@@ -224,39 +239,39 @@ const Codehub = () =>{
                                             {
                                                 status1_5?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Understand Recursion by printing something N times</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Print name N times using recursion</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Print 1 to N using recursion</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Print N to 1 using recursion</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Sum of first N numbers</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Factorial of N numbers</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Reverse an array</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Check if a string is palindrome or not</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Fibonacci Number</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div></>:null
                                             }
                                         </div>
@@ -267,15 +282,15 @@ const Codehub = () =>{
                                             {
                                                 status1_6?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Hashing Theory</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Count frequency of each element in the array</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Find the highest/lowest frequency element</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div></>:null
                                             }
                                         </div></>:null
@@ -293,15 +308,15 @@ const Codehub = () =>{
                                             {
                                                 status2_1?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Selection Sort</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Bubble Sort</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Insertion Sort</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div></>:null
                                             }
                                     </div>
@@ -312,19 +327,19 @@ const Codehub = () =>{
                                             {
                                                 status2_2?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Merge Sort</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Recursive Bubble Sort</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Recursive Insertion Sort</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Quick Sort</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div></>:null
                                             }
                                         </div></>:null
@@ -342,59 +357,59 @@ const Codehub = () =>{
                                             {
                                                 status3_1?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Largest Element in an Array</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Find Second Smallest and Second Largest Element in an array</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Check if the array is sorted</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Remove duplicates from Sorted array</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Left Rotate an array by one place</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Left rotate an array by D places</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Move Zeros to end</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Linear Search</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Find the Union</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Find missing number in an array</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Maximum Consecutive Ones</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Find the number that appears once, and the other numbers twice</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Longest Subarray with given Sum K(Positives)</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Longest Subarray with sum K | [Postives and Negatives]</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -406,59 +421,59 @@ const Codehub = () =>{
                                             {
                                                 status3_2?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Sort an array of 0's 1's and 2's</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Majority Element ({">"}n/2 times)</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Kadane’s Algorithm : Maximum Subarray Sum in an Array</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">KaPrint subarray with maximum subarray Sum in an Array</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Stock Buy and Sell</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Rearrange Array Elements by Sign</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Rearrange the array in alternating </div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Next Permutation</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Leaders in an Array problem</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Longest Consecutive Sequence in an Array</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Set Matrix Zeros</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Rotate Matrix by 90 degrees</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Print the matrix in spiral manner</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Count subarrays with given sum</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -470,51 +485,51 @@ const Codehub = () =>{
                                             {
                                                 status3_3?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Pascal's Triangle</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Majority Element (n/3 times)</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">3-Sum Problem</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	4-Sum Problem</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Largest Subarray with 0 Sum</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Count the number of subarrays with given xor K</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Merge Overlapping Subintervals</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Merge two Sorted Arrays Without Extra Space</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Find the repeating and missing numbers</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Count Inversions</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Reverse Pairs</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Maximum Product Subarray</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -533,55 +548,55 @@ const Codehub = () =>{
                                             {
                                                 status4_1?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Binary Search: Explained</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Implement Lower Bound</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Implement Upper Bound</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Search Insert Position</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Floor/Ceil in Sorted Array</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">First and Last Occurrences in Array</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Count Occurrences in Sorted Array</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Search in Rotated Sorted Array I</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Search in Rotated Sorted Array II</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Minimum in Rotated Sorted Array</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Find out how many times the array has been rotated</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Single element in a Sorted Array</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Find peak element</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -593,59 +608,59 @@ const Codehub = () =>{
                                             {
                                                 status4_2?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Finding Sqrt of a number using Binary Search</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Nth Root of a Number using Binary Search</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Koko Eating Bananas</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Minimum days to make M bouquets</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Find the smallest Divisor</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Capacity to Ship Packages within D Days</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Kth Missing Positive Number</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Aggressive Cows</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Book Allocation Problem</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Split array - Largest Sum</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Painter's partition</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Minimise Maximum Distance between Gas Stations</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Median of 2 sorted arrays</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Kth element of 2 sorted arrays</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -657,23 +672,23 @@ const Codehub = () =>{
                                             {
                                                 status4_3?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Find the row with maximum number of 1{"’"}s</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Search in a 2 D matrix</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Search in a row and column-wise sorted matrix</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Find Peak Element (2D Matrix)</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Matrix Median</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -692,31 +707,31 @@ const Codehub = () =>{
                                             {
                                                 status5_1?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Remove outermost Paranthesis</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Reverse Words in a String</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Largest odd number in a string</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Longest Common Prefix</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Isomorphic String</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">check whether one string is a rotat…</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Check if two Strings are anagrams of each other</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -728,35 +743,35 @@ const Codehub = () =>{
                                             {
                                                 status5_2?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Sort Characters by frequency</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Maximum Nesting Depth of Paranthesi…</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Roman Number to Integer and vice ve...</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Implement Atoi</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Count Number of Substrings</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Longest Palindromic Substring Do it…</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Sum of Beauty of all substring</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Reverse Every Word in A String</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -775,23 +790,23 @@ const Codehub = () =>{
                                             {
                                                 status6_1?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Introduction to LinkedList</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Inserting a node in LinkedList</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Deleting a node in LinkedList</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Find the Length of a Linked List</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Search an element in a Linked List</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -803,19 +818,19 @@ const Codehub = () =>{
                                             {
                                                 status6_2?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Introduction to Doubly Linked List</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Insert a node in DLL</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Delete a node in DLL</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Reverse a DLL</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -827,63 +842,63 @@ const Codehub = () =>{
                                             {
                                                 status6_3?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Find middle element in a Linked List</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Reverse a LinkedList [Iterative]</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Reverse a LL [Recursive]</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Detect a loop in LL</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Find the starting point in LL</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Length of Loop in LL</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Check if LL is palindrome or not</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Segrregate odd and even nodes in LL</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Remove N-th node from the end of a Linked List</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Delete the middle node of LL</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Sort LL</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Sort a LL of 0's 1's and 2's</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Find intersection of Two Linked Lists</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Add 1 to a number represented by LL</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Add 2 numbers in LL</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -895,15 +910,15 @@ const Codehub = () =>{
                                             {
                                                 status6_4?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Delete all occurrences of a key in...</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Find pairs with given sum in DLL</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Remove duplicates from sorted DLL</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -915,19 +930,19 @@ const Codehub = () =>{
                                             {
                                                 status6_5?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Reverse LL in group of given size K</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Rotate a LL</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Flattening of LL</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Clone Linked List with Random and Next Pointer</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -947,23 +962,23 @@ const Codehub = () =>{
                                             {
                                                 status7_1?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Recursive Implementation of atoi()</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Pow(x, n)</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Count Good numbers</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Sort a stack using recursion</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Reverse a stack using recursion</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -975,51 +990,51 @@ const Codehub = () =>{
                                             {
                                                 status7_2?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Generate all binary strings</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Generate Paranthesis</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Print all subsequences/Power Set</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Learn All Patterns of Subsequences …</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Count all subsequences with sum K</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Check if there exists a subsequence…</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Combination Sum</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Combination Sum-II</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Subset Sum-I</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Subset Sum-II</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Combination Sum - III</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Letter Combinations of a Phone numb…</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -1031,35 +1046,35 @@ const Codehub = () =>{
                                             {
                                                 status7_3?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Palindrome Partitioning</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Word Search</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">N Queen</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Rat in a Maze</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Word Break</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	M Coloring Problem</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Sudoko Solver</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Expression Add Operators</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -1078,35 +1093,35 @@ const Codehub = () =>{
                                             {
                                                 status8_1?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Introduction to Bit Manipulation</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Check if the i-th bit is set or not</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Check if a number is odd or not</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Check if a number is power of 2 or …</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Count the number of set bits</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Set/Unset the rightmost unset bit</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Swap two numbers</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Divide two integers without using m…</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -1118,23 +1133,23 @@ const Codehub = () =>{
                                             {
                                                 status8_2?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Count number of bits to be flipped …</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Find the number that appears odd nu…</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Power Set</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Find xor of numbers from L to R</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Find the two numbers appearing odd …</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -1146,23 +1161,23 @@ const Codehub = () =>{
                                             {
                                                 status8_3?<><div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Count number of bits to be flipped …</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Find the number that appears odd nu…</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Power Set</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">	Find xor of numbers from L to R</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         <div className="flex justify-between items-center bg-blue-200 ml-10 mr-10 p-3 uppercase hover:bg-blue-300 hover:border-2 border-dotted border-black">
                                                             <div className="flex-shrink-0">Find the two numbers appearing odd …</div>
-                                                            <div className="flex-shrink-0"><PiYoutubeLogoFill /></div>
+                                                            <a href=""><div className="flex-shrink-0 w-[50px] flex items-center justify-center"><CiLink /></div></a>
                                                         </div>
                                                         </>:null
                                             }
@@ -1342,6 +1357,18 @@ const Codehub = () =>{
                         }
                     </div>
                 </div>
+            </div>
+        </>:null}
+        <div>
+            {
+                front?<Frontend/>:null
+            }
+        </div>
+        <div>
+            {
+                backend?<Backend/>:null
+            }
+        </div>
             </div>
         </div>
     )
