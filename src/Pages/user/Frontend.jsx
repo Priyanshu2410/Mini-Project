@@ -59,7 +59,7 @@ const Fronted = () => {
       title: "Interactive Form Validation",
       description: "Build a form with interactive validation using JavaScript.",
       link:"https://youtu.be/1OgmEHMIirI?si=8Npx9F4X6r_WmqHp"
-    },
+    },  
     {
       title: "To-Do List Application",
       description: "Develop a to-do list application using ReactJS.",
@@ -77,10 +77,10 @@ const Fronted = () => {
 
   return (<>
     
-    <h1 className="text-6xl font-bold text-center p-3 bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-200">Frontend Practice</h1>
+    {/* <h1 className="text-6xl font-bold text-center p-3 bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-200">Frontend Practice</h1> */}
 
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 mt-4 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {challenges.map((challenge, index) => (
         <ChallengeCard
           key={index}
