@@ -182,7 +182,7 @@ const CoursesUser = () => {
                                 {singleCourse.description}
                             </p>
                             <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow">
-                                Add Item
+                                View Coures
                             </button>
                         </div>
                     </div>
