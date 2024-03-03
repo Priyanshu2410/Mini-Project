@@ -54,16 +54,16 @@ const ListCourse = () => {
 
     const submitform = async (e) => {
         e.preventDefault();
-
+    
         const formData = new FormData();
         formData.append("image", image);
         formData.append("name", document.getElementById("name").value);
         formData.append("category", document.getElementById("category").value);
         formData.append("description", document.getElementById("description").value);
-
-        // Add coordinator's email to the form data
         formData.append("coordinatorEmail", coordinater.email);
-
+        formData.append("coordinatorDept", coordinater.dept); // Add coordinator's department
+        formData.append("coordinatorClg", coordinater.college); 
+    
         try {
             const result = await axios.post(
                 "http://localhost:5000/addcourse",
@@ -72,17 +72,17 @@ const ListCourse = () => {
                     headers: { "Content-Type": "multipart/form-data" },
                 }
             );
-            console.log(result.data);
+            console.log("Result" + result.data);
             toast.success("Course added successfully!");
             window.location.reload();
         } catch (error) {
             console.error("Error uploading file", error);
-
+    
             // Display error toast
             toast.error("Error uploading file. Please try again.");
         }
     };
-
+    
 
 
     return (
@@ -196,8 +196,6 @@ const ListCourse = () => {
                                                 <svg className="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
                                                 Add new Course
                                             </button>
-
-
                                         </form>
                                         <ToastContainer />
                                     </div>

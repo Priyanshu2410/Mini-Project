@@ -19,12 +19,15 @@ const Login = () => {
         localStorage.setItem("data", JSON.stringify(result.data));
         if(result.data.role === "coordinator")
         {
-          navigate("/coordinator");
+          navigate("/coordinator/home");
         }
-        else
+        else if(result.data.role === "user")
         {
           navigate("/user/home");
         
+        }
+        else{
+          alert("Invalid Credentials")
         }
       }
       else{ 
