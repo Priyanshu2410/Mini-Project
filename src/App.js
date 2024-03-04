@@ -19,6 +19,7 @@ import UserProfile from "./Pages/user/UserProfile.jsx";
 import CoordinatorHome from "./Pages/coordinator/home.jsx";
 import ListCourse from "./Pages/coordinator/listcourse.jsx";
 import Contact from "./Pages/coordinator/contact.jsx";
+import Coprofile from "./Pages/coordinator/Coprofile.jsx";
 
 function App() {
   return (
@@ -41,6 +42,8 @@ function App() {
           <Route path="home" element={<CoordinatorHome />} />
           <Route path="listcourse" element={<ListCourse />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="profile" element={<Coprofile />} />
+
 
 
         </Route>

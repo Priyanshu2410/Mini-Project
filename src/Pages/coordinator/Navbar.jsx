@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { FaUser } from "react-icons/fa6";
+
 // import logo from "../../../public/heaer_logo_final.png"
 
 const Navbar = () => {
@@ -25,9 +27,15 @@ const Navbar = () => {
                         <img src="/heaer_logo_final.png" className="h-20 w-[120%]" alt="cvm Logo" />
                         {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">CVM</span> */}
                     </Link>
-                    <div className="flex flex-row items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-
+                    <div className="flex flex-row items-center md:order-2 space-x-6 md:space-x-8 rtl:space-x-reverse">
                         <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Log Out</button>
+                        <Link
+                            to="/coordinator/profile"
+                            className='flex items-center justify-center rounded-full w-10 h-10 bg-gray-200 text-gray-600 hover:bg-gray-300 hover:text-gray-700'
+                            style={{ fontSize: '1.5rem' }}
+                        >
+                            <FaUser />
+                        </Link>
 
                     </div>
                     <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
