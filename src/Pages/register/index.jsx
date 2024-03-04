@@ -120,9 +120,9 @@ const Register = () => {
             onChange={(e) => setCollage(e.target.value)}
           >
             <option value="" disabled selected>Select your collage</option>
-            <option value="male">ADIT</option>
-            <option value="gcet">GCET</option>
-            <option value="mbit">MBIT</option>
+            <option value="A. D. Patel Institute of Technology">ADIT</option>
+            <option value="G H Patel College of Engineering & Technology">GCET</option>
+            <option value="Madhuben & Bhanubhai Patel Institute of Technology">MBIT</option>
             <option value="other">OTHER</option>
           </select>
           <select name="dept" required=""
@@ -130,10 +130,10 @@ const Register = () => {
             onChange={(e) => setDept(e.target.value)}
           >
             <option value="" disabled selected>Select your department</option>
-            <option value="IT">Information Technology</option>
-            <option value="cs">Computer Engineering </option>
-            <option value="aids">Artificial Intelligence & Data Science (AI&DS)</option>
-            <option value="csd">Computer Engineering and design</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Computer Enginnering">Computer Engineering </option>
+            <option value="Data Science and Artificial Intelligence">Artificial Intelligence & Data Science (AI&DS)</option>
+            <option value="Computer Enginnering and Design">Computer Engineering and design</option>
             <option value="other">Other</option>
           </select>
 

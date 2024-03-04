@@ -14,7 +14,7 @@ const CoursesUser = () => {
     };
 
     const collegeOptions = {
-        'A. D. Patel Institute of Technology': ['Select your program', 'Information Technology', 'Data Science and Artificial Intelligence', 'Computer Enginnering'],
+        'A. D. Patel Institute of Technology': ['Select your program', 'Information Technology', 'Data Science and Artificial Intelligence', 'Computer Enginnering','Computer Enginnering and Design'],
         'G H Patel College of Engineering & Technology': ['Select your program', 'Information Technology', 'Computer Enginnering'],
         'Madhuben & Bhanubhai Patel Institute of Technology': ['Select your program', 'Information Technology', 'Computer Enginnering'],
         // Add other program options
