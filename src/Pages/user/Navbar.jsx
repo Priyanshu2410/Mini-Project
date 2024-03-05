@@ -30,7 +30,7 @@ const Navbar = () => {
             <nav className="bg-white dark:bg-gray-800 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-1">
                     <Link href="https://www.cvmu.edu.in/" className="flex items-center space-x-3 ">
-                        <img src="/heaer_logo_final.png" className="h-20 w-[120%]" alt="cvm Logo" />
+                        <img src="/mentorlogo.png" className="h-20 w-[120%]" alt="cvm Logo" />
                         {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">CVM</span> */}
                     </Link>
                     <div className="flex flex-row items-center md:order-2 space-x-6 md:space-x-8 rtl:space-x-reverse">
