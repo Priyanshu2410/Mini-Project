@@ -1,11 +1,89 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ListCourse = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [image, setImage] = useState(null);
+    // const [allImage, setAllImage] = useState(null);
+    const [course, setCourse] = useState([]); // Initialize as an empty array
+    const [coordinater, setCoordinater] = useState({});
+
+    useEffect(() => {
+        // Fetch user data from the server or check session status
+        const x = JSON.parse(localStorage.getItem("data"))
+        // console.log(x);
+        setCoordinater(x);
+        console.log("coordinater");
+        getCourse(x);
+        // console.log(localStorage.getItem("data"));
+        // console.log("test ."+ typeof(course));
+        // console.log(filteredCourses);
+    }, []);
+
+
+
 
     const toggleModal = () => {
         setIsModalOpen(!isModalOpen);
     };
+
+    const onInputChange = (e) => {
+        console.log(e.target.files[0]);
+        setImage(e.target.files[0]);
+    };
+
+    const getCourse = async (x) => {
+        try {
+            const result = await axios.get("http://localhost:5000/getcourse?email=" + x.email);
+            console.log("result", result.data.data);
+
+            // Filter courses based on coordinator's email
+            // const filteredCourses = result.data.data.filter(course => course.coordinatorEmail === coordinater.email);
+
+            // setAllImage(result.data.data);
+            setCourse(result.data.data); // Set the array of filtered courses
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+
+    const submitform = async (e) => {
+        e.preventDefault();
+    
+        const formData = new FormData();
+        formData.append("image", image);
+        formData.append("name", document.getElementById("name").value);
+        formData.append("category", document.getElementById("category").value);
+        formData.append("description", document.getElementById("description").value);
+        formData.append("coordinatorEmail", coordinater.email);
+        formData.append("coordinatorDept", coordinater.dept); // Add coordinator's department
+        formData.append("coordinatorClg", coordinater.college); 
+    
+        try {
+            const result = await axios.post(
+                "http://localhost:5000/addcourse",
+                formData,
+                {
+                    headers: { "Content-Type": "multipart/form-data" },
+                }
+            );
+            console.log("Result" + result.data);
+            toast.success("Course added successfully!");
+            window.location.reload();
+        } catch (error) {
+            console.error("Error uploading file", error);
+    
+            // Display error toast
+            toast.error("Error uploading file. Please try again.");
+        }
+    };
+    
+
 
     return (
         <div className="container mx-auto mt-10 pt-[85px]">
@@ -77,7 +155,7 @@ const ListCourse = () => {
                                             </button>
                                         </div>
                                         {/* Modal body */}
-                                        <form className="p-4 md:p-5">
+                                        <form className="p-4 md:p-5 " onSubmit={submitform}>
                                             {/* ... (rest of the modal content) */}
                                             <div className="grid gap-4 mb-4 grid-cols-2">
                                                 <div className="col-span-2">
@@ -90,10 +168,12 @@ const ListCourse = () => {
                                                     </label>
                                                     <input
                                                         type="file"
+                                                        accept="image/*"
                                                         name="file"
                                                         id="file"
                                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                                         required
+                                                        onChange={onInputChange}
                                                     />
                                                 </div>
                                                 <div className="col-span-2 sm:col-span-1">
@@ -117,6 +197,7 @@ const ListCourse = () => {
                                                 Add new Course
                                             </button>
                                         </form>
+                                        <ToastContainer />
                                     </div>
                                 </div>
                             </div>
@@ -128,61 +209,33 @@ const ListCourse = () => {
             <hr className="border-t border-gray-300 mb-8 mx-10" />
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-4 my-[30px]">
-                <div className="w-full p-2 rounded-lg border border-gray-300 shadow-xl">
-                    <img
-                        className="object-cover w-full h-40 rounded-t-lg"
-                        src="https://assets-global.website-files.com/61845f7929f5aa517ebab941/6440f9477c2a321f0dd6ab61_How%20Artificial%20Intelligence%20(AI)%20Is%20Used%20In%20Biometrics.jpg"
-                        alt="image"
-                    />
-                    <div className="p-4">
-                        <h4 className="text-xl font-semibold tracking-tight text-blue-600">
-                            React Tailwind Horizontal Card with Image
-                        </h4>
-                        <p className="mb-2 leading-normal text-gray-700">
-                            It is a long established fact that a reader will be distracted by the readable content.
-                        </p>
-                        <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow">
-                            Add Item
-                        </button>
+                {course.map((singleCourse) => (
+                    <div key={singleCourse._id} className="w-full p-2 rounded-lg border border-gray-300 shadow-xl">
+                        
+                        <h1>{singleCourse._id}</h1>
+                        <img
+                            key={singleCourse._id}
+                            className="object-cover w-full h-40 rounded-t-lg"
+                            src={require(`../../images/${singleCourse.image}`)}
+                            alt={singleCourse._id}
+                        />
+
+                        <div className="p-4">
+                            <h4 className="text-xl font-semibold tracking-tight text-blue-600">
+                                {singleCourse.name}
+                            </h4>
+                            <p className="mb-2 leading-normal text-gray-700">
+                                {singleCourse.category} <br />
+                                {singleCourse.description}
+                            </p>
+                            <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow">
+                                Add Item
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div className="w-full p-2 rounded-lg border border-gray-300 shadow-xl">
-                    <img
-                        className="object-cover w-full h-40 rounded-t-lg"
-                        src="https://assets-global.website-files.com/61845f7929f5aa517ebab941/6440f9477c2a321f0dd6ab61_How%20Artificial%20Intelligence%20(AI)%20Is%20Used%20In%20Biometrics.jpg"
-                        alt="image"
-                    />
-                    <div className="p-4">
-                        <h4 className="text-xl font-semibold tracking-tight text-blue-600">
-                            React Tailwind Horizontal Card with Image
-                        </h4>
-                        <p className="mb-2 leading-normal text-gray-700">
-                            It is a long established fact that a reader will be distracted by the readable content.
-                        </p>
-                        <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow">
-                            Add Item
-                        </button>
-                    </div>
-                </div>
-                <div className="w-full p-2 rounded-lg border border-gray-300 shadow-xl">
-                    <img
-                        className="object-cover w-full h-40 rounded-t-lg"
-                        src="https://assets-global.website-files.com/61845f7929f5aa517ebab941/6440f9477c2a321f0dd6ab61_How%20Artificial%20Intelligence%20(AI)%20Is%20Used%20In%20Biometrics.jpg"
-                        alt="image"
-                    />
-                    <div className="p-4">
-                        <h4 className="text-xl font-semibold tracking-tight text-blue-600">
-                            React Tailwind Horizontal Card with Image
-                        </h4>
-                        <p className="mb-2 leading-normal text-gray-700">
-                            It is a long established fact that a reader will be distracted by the readable content.
-                        </p>
-                        <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow">
-                            Add Item
-                        </button>
-                    </div>
-                </div>
+                ))}
             </div>
+
         </div>
     );
 };

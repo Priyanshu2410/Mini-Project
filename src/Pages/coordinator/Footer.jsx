@@ -7,7 +7,7 @@ const  Footer =()=> {
       <div
         className="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-neutral-500 lg:justify-between">
         <div className="mr-12 hidden lg:block">
-          <span>Get connected with us on social dvdvnetworks:</span>
+          <span>Get connected with us on social networks:</span>
         </div>
         {/* <!-- Social network icons container --> */}
         <div className="flex justify-center">

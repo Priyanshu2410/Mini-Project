@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Lognav from "./Lognav";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -19,12 +20,15 @@ const Login = () => {
         localStorage.setItem("data", JSON.stringify(result.data));
         if(result.data.role === "coordinator")
         {
-          navigate("/coordinator");
+          navigate("/coordinator/home");
         }
-        else
+        else if(result.data.role === "user")
         {
           navigate("/user/home");
         
+        }
+        else{
+          alert("Invalid Credentials")
         }
       }
       else{ 
@@ -37,6 +41,8 @@ const Login = () => {
   
 
   return (
+    <div>
+      <Lognav/>
     <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
       <div className="md:w-1/3 max-w-sm">
         <img
@@ -109,6 +115,7 @@ const Login = () => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
 

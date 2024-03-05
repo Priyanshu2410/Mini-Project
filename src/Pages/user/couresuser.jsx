@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { GoArrowUpRight } from "react-icons/go";
+import axios from 'axios';
 
 const CoursesUser = () => {
     const [selectedFaculty, setSelectedFaculty] = useState('');
     const [selectedProgram, setSelectedProgram] = useState('');
     const [selectedCollege, setSelectedCollege] = useState('');
+    const [course, setCourse] = useState([]);
 
     const programOptions = {
         'ET': ['Select your collage', 'A. D. Patel Institute of Technology', 'G H Patel College of Engineering & Technology', 'Madhuben & Bhanubhai Patel Institute of Technology'],
@@ -12,11 +14,38 @@ const CoursesUser = () => {
     };
 
     const collegeOptions = {
-        'A. D. Patel Institute of Technology': ['Select your program', 'Information Technology', 'Data Science and Artificial Intelligence', 'Computer Enginnering'],
+        'A. D. Patel Institute of Technology': ['Select your program', 'Information Technology', 'Data Science and Artificial Intelligence', 'Computer Enginnering','Computer Enginnering and Design'],
         'G H Patel College of Engineering & Technology': ['Select your program', 'Information Technology', 'Computer Enginnering'],
         'Madhuben & Bhanubhai Patel Institute of Technology': ['Select your program', 'Information Technology', 'Computer Enginnering'],
         // Add other program options
     };
+    const getCourse = async (event) => {
+        event.preventDefault();
+        try {
+            console.log("Selected College:", selectedProgram);
+            console.log("Selected Program:",  selectedCollege);
+    
+            // Check if both selectedCollege and selectedProgram are available
+            if (selectedCollege && selectedProgram) {
+                const result = await axios.get(`http://localhost:5000/getusercourse`, {
+                    params: {
+                        coordinatorDept: selectedCollege,
+                        coordinatorClg: selectedProgram,
+                    },
+                });
+                console.log("result", result.data.data);
+                setCourse(result.data.data);
+            } else {
+                console.log("Please select both college and program before making the API call.");
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
+    
+    
+
+
 
     const handleFacultyChange = (event) => {
         const facultyValue = event.target.value;
@@ -35,6 +64,17 @@ const CoursesUser = () => {
         const collegeValue = event.target.value;
         setSelectedCollege(collegeValue);
     };
+
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+
+    //     // Here, you can perform actions based on the selected values
+    //     if (selectedCollege && selectedProgram) {
+    //         // Perform your logic, e.g., make an API request
+    //         console.log(`Selected College: ${selectedCollege}, Selected Program: ${selectedProgram}`);
+    //         // Make an API request or any other action you need
+    //     }
+    // };
     return (
         <div className="pt-[80px] ">
             <div
@@ -57,7 +97,7 @@ const CoursesUser = () => {
                         </p>
                     </div>
 
-                    <form className="flex flex-row mt-8">
+                    <form className="flex flex-row mt-8 " >
 
                         {/* First Select */}
                         <select
@@ -100,9 +140,13 @@ const CoursesUser = () => {
                                 </option>
                             ))}
                         </select>
-                        <span className="dark:bg-[#ecea73] ml-[10px] flex items-center rounded-full p-5">
-                            <GoArrowUpRight className="text-black text-[35px] font-bold " />
-                        </span>
+                        <button
+                            type="button" // Use type="button" to prevent form submission
+                            className="dark:bg-[#ecea73] ml-[10px] flex items-center rounded-full p-5 cursor-pointer"
+                            onClick={getCourse}
+                        >
+                            <GoArrowUpRight className="text-black text-[35px] font-bold" />
+                        </button>
                     </form>
 
 
@@ -119,96 +163,32 @@ const CoursesUser = () => {
 
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 px-4 my-[30px]'>
-                <div className="w-full p-2 rounded-lg border border-gray-300 shadow-xl">
-                    <img
-                        className="object-cover w-full h-40 rounded-t-lg"
-                        src="https://assets-global.website-files.com/61845f7929f5aa517ebab941/6440f9477c2a321f0dd6ab61_How%20Artificial%20Intelligence%20(AI)%20Is%20Used%20In%20Biometrics.jpg"
-                        alt="image"
-                    />
-                    <div className="p-4">
-                        <h4 className="text-xl font-semibold tracking-tight text-blue-600">
-                            React Tailwind Horizontal Card with Image
-                        </h4>
-                        <p className="mb-2 leading-normal text-gray-700">
-                            It is a long established fact that a reader will be distracted by the readable content.
-                        </p>
-                        <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow">
-                            Read more
-                        </button>
+                {course.map((singleCourse) => (
+                    <div key={singleCourse._id} className="w-full p-2 rounded-lg border border-gray-300 shadow-xl">
+
+                        <img
+                            key={singleCourse._id}
+                            className="object-cover w-full h-40 rounded-t-lg"
+                            src={require(`../../images/${singleCourse.image}`)}
+                            alt={singleCourse._id}
+                        />
+
+                        <div className="p-4">
+                            <h4 className="text-xl font-semibold tracking-tight text-blue-600">
+                                {singleCourse.name}
+                            </h4>
+                            <p className="mb-2 leading-normal text-gray-700">
+                                {singleCourse.category} <br />
+                                {singleCourse.description}
+                            </p>
+                            <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow">
+                                View Coures
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div className="w-full p-2 rounded-lg border border-gray-300 shadow-xl">
-                    <img
-                        className="object-cover w-full h-40 rounded-t-lg"
-                        src="https://assets-global.website-files.com/61845f7929f5aa517ebab941/6440f9477c2a321f0dd6ab61_How%20Artificial%20Intelligence%20(AI)%20Is%20Used%20In%20Biometrics.jpg"
-                        alt="image"
-                    />
-                    <div className="p-4">
-                        <h4 className="text-xl font-semibold tracking-tight text-blue-600">
-                            React Tailwind Horizontal Card with Image
-                        </h4>
-                        <p className="mb-2 leading-normal text-gray-700">
-                            It is a long established fact that a reader will be distracted by the readable content.
-                        </p>
-                        <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow">
-                            Read more
-                        </button>
-                    </div>
-                </div>
-                <div className="w-full p-2 rounded-lg border border-gray-300 shadow-xl">
-                    <img
-                        className="object-cover w-full h-40 rounded-t-lg"
-                        src="https://assets-global.website-files.com/61845f7929f5aa517ebab941/6440f9477c2a321f0dd6ab61_How%20Artificial%20Intelligence%20(AI)%20Is%20Used%20In%20Biometrics.jpg"
-                        alt="image"
-                    />
-                    <div className="p-4">
-                        <h4 className="text-xl font-semibold tracking-tight text-blue-600">
-                            React Tailwind Horizontal Card with Image
-                        </h4>
-                        <p className="mb-2 leading-normal text-gray-700">
-                            It is a long established fact that a reader will be distracted by the readable content.
-                        </p>
-                        <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow">
-                            Read more
-                        </button>
-                    </div>
-                </div>
-                <div className="w-full p-2 rounded-lg border border-gray-300 shadow-xl">
-                    <img
-                        className="object-cover w-full h-40 rounded-t-lg"
-                        src="https://assets-global.website-files.com/61845f7929f5aa517ebab941/6440f9477c2a321f0dd6ab61_How%20Artificial%20Intelligence%20(AI)%20Is%20Used%20In%20Biometrics.jpg"
-                        alt="image"
-                    />
-                    <div className="p-4">
-                        <h4 className="text-xl font-semibold tracking-tight text-blue-600">
-                            React Tailwind Horizontal Card with Image
-                        </h4>
-                        <p className="mb-2 leading-normal text-gray-700">
-                            It is a long established fact that a reader will be distracted by the readable content.
-                        </p>
-                        <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow">
-                            Read more
-                        </button>
-                    </div>
-                </div>
-                <div className="w-full p-2 rounded-lg border border-gray-300 shadow-xl">
-                    <img
-                        className="object-cover w-full h-40 rounded-t-lg"
-                        src="https://assets-global.website-files.com/61845f7929f5aa517ebab941/6440f9477c2a321f0dd6ab61_How%20Artificial%20Intelligence%20(AI)%20Is%20Used%20In%20Biometrics.jpg"
-                        alt="image"
-                    />
-                    <div className="p-4">
-                        <h4 className="text-xl font-semibold tracking-tight text-blue-600">
-                            React Tailwind Horizontal Card with Image
-                        </h4>
-                        <p className="mb-2 leading-normal text-gray-700">
-                            It is a long established fact that a reader will be distracted by the readable content.
-                        </p>
-                        <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow">
-                            Read more
-                        </button>
-                    </div>
-                </div>
+                ))}
+
+
 
                 {/* Repeat this block for each card */}
             </div>
