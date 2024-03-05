@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 import { toast, ToastContainer } from 'react-toastify';
@@ -11,6 +12,12 @@ const ListCourse = () => {
     // const [allImage, setAllImage] = useState(null);
     const [course, setCourse] = useState([]); // Initialize as an empty array
     const [coordinater, setCoordinater] = useState({});
+    const navigate = useNavigate();
+
+    const handleAddItemClick = (courseId) => {
+      // Navigate to the "additem" route with the specific course ID
+      navigate(`/coordinator/additem/${courseId}`);
+    };
 
     useEffect(() => {
         // Fetch user data from the server or check session status
@@ -54,7 +61,7 @@ const ListCourse = () => {
 
     const submitform = async (e) => {
         e.preventDefault();
-    
+
         const formData = new FormData();
         formData.append("image", image);
         formData.append("name", document.getElementById("name").value);
@@ -62,8 +69,8 @@ const ListCourse = () => {
         formData.append("description", document.getElementById("description").value);
         formData.append("coordinatorEmail", coordinater.email);
         formData.append("coordinatorDept", coordinater.dept); // Add coordinator's department
-        formData.append("coordinatorClg", coordinater.college); 
-    
+        formData.append("coordinatorClg", coordinater.college);
+
         try {
             const result = await axios.post(
                 "http://localhost:5000/addcourse",
@@ -77,12 +84,12 @@ const ListCourse = () => {
             window.location.reload();
         } catch (error) {
             console.error("Error uploading file", error);
-    
+
             // Display error toast
             toast.error("Error uploading file. Please try again.");
         }
     };
-    
+
 
 
     return (
@@ -211,7 +218,7 @@ const ListCourse = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-4 my-[30px]">
                 {course.map((singleCourse) => (
                     <div key={singleCourse._id} className="w-full p-2 rounded-lg border border-gray-300 shadow-xl">
-                        
+
                         <h1>{singleCourse._id}</h1>
                         <img
                             key={singleCourse._id}
@@ -228,7 +235,10 @@ const ListCourse = () => {
                                 {singleCourse.category} <br />
                                 {singleCourse.description}
                             </p>
-                            <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow">
+                            <button
+                                onClick={() => handleAddItemClick(singleCourse._id)}
+                                className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow"
+                            >
                                 Add Item
                             </button>
                         </div>

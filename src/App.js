@@ -44,7 +44,7 @@ function App() {
           <Route path="listcourse" element={<ListCourse />} />
           <Route path="contact" element={<Contact />} />
           <Route path="profile" element={<Coprofile />} />
-          <Route path="additem" element={<Additem />} />
+          <Route path="additem/:courseId" element={<Additem />} />
 
 
 
