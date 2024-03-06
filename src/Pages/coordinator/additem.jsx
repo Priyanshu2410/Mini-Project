@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { toast, ToastContainer } from 'react-toastify';
@@ -9,6 +9,8 @@ import axios from "axios";
 const Additem = () => {
     const { courseId } = useParams();
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [videos, setVideos] = useState([]);
+
 
 
     const toggleModal = () => {
@@ -23,13 +25,13 @@ const Additem = () => {
 
     const submitform = async (e) => {
         e.preventDefault();
-    
+
         const formData = new FormData();
         formData.append("name", document.getElementById("name").value);
         formData.append("youtubeLink", document.getElementById("youtube").value);
         formData.append("description", document.getElementById("description").value);
         formData.append("courseID", courseId);
-    
+
         try {
             const result = await axios.post(
                 "http://localhost:5000/addvideo",
@@ -43,25 +45,41 @@ const Additem = () => {
             window.location.reload();
         } catch (error) {
             console.error("Error uploading video", error);
-    
+
             // Display error toast
             toast.error("Error uploading video. Please try again.");
         }
     };
-    
+
+    const getVideo = async () => {
+        try {
+            const result = await axios.get(`http://localhost:5000/getvideo?courseID=${courseId}`);
+            console.log("Result", result.data.data);
+            setVideos(result.data.data);
+        } catch (error) {
+            console.error("Error fetching video", error);
+        }
+    };
+
+    useEffect(() => {
+        getVideo();
+    }, []);
 
 
-
-    const youtubeWatchUrl = 'https://youtu.be/iL4HVoGMeGs?si=jH1t1-tI0mSFNqXZ';
-    const youtubeVideoId = getYouTubeVideoId(youtubeWatchUrl);
+    const youtubeWatchUrl = videos.youtubeLink || '';
+    const youtubeVideoId = youtubeWatchUrl ? getYouTubeVideoId(youtubeWatchUrl) : '';
     const youtubeEmbedUrl = youtubeVideoId ? `https://www.youtube.com/embed/${youtubeVideoId}` : '';
+
+
+
+
     return (
         <div className="pt-[85px]">
             <div className="mt-8">
                 <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
                     Add Video and other materials
                 </h1>
-                <h1>Add Item for Course ID: {courseId}</h1>
+                {/* <h1>Add Item for Course ID: {courseId}</h1> */}
 
             </div>
             <div className="container mx-auto mt-10 py-[30px] px-[30px] items-center justify-center bg-gray-100 rounded-lg shadow-md">
@@ -122,7 +140,7 @@ const Additem = () => {
                                         </div>
                                         {/* Modal body */}
                                         <form className="p-4 md:p-5 "
-                                         onSubmit={submitform}
+                                            onSubmit={submitform}
                                         >
                                             {/* ... (rest of the modal content) */}
                                             <div className="grid gap-4 mb-4 grid-cols-2">
@@ -138,7 +156,7 @@ const Additem = () => {
                                                     <label for="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Video Description</label>
                                                     <textarea id="description" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write video description here"></textarea>
                                                 </div>
-                                               
+
 
 
                                             </div>
@@ -156,24 +174,29 @@ const Additem = () => {
                 </div>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-4 my-[30px]">
-                <div className="rounded-lg shadow-lg bg-white max-w-sm">
-                    <iframe
-                        title="YouTube Video"
-                        width="100%"
-                        height="250"
-                        src={youtubeEmbedUrl}
-                        frameBorder="0"
-                        allowFullScreen
-                    ></iframe>
-                    <div className="p-6">
-                        <h5 className="text-gray-900 text-xl font-medium mb-2">Video Card</h5>
-                        <p className="text-gray-700 text-base mb-4">
-                            Some quick example text to build on the card title and make up the bulk of the card's
-                            content.
-                        </p>
-                        
+                {videos.map((video) => (
+                    <div key={video._id} className="rounded-lg shadow-lg bg-white max-w-sm">
+                        {/* Use the correct video properties here */}
+                        {video.youtubeLink && (
+                            <iframe
+                                title={`YouTube Video ${video._id}`}
+                                width="100%"
+                                height="250"
+                                src={`https://www.youtube.com/embed/${getYouTubeVideoId(video.youtubeLink)}`}
+                                frameBorder="0"
+                                allowFullScreen
+                            ></iframe>
+                        )}
+
+                        <div className="p-6">
+                            <h5 className="text-gray-900 text-xl font-medium mb-2">{video.title}</h5>
+                            <p className="text-gray-700 text-base mb-4">
+                                {video.description}
+                            </p>
+                        </div>
                     </div>
-                </div>
+                ))}
+
             </div>
 
 

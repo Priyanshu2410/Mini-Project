@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { GoArrowUpRight } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 const CoursesUser = () => {
@@ -7,6 +8,7 @@ const CoursesUser = () => {
     const [selectedProgram, setSelectedProgram] = useState('');
     const [selectedCollege, setSelectedCollege] = useState('');
     const [course, setCourse] = useState([]);
+    const navigate = useNavigate();
 
     const programOptions = {
         'ET': ['Select your collage', 'A. D. Patel Institute of Technology', 'G H Patel College of Engineering & Technology', 'Madhuben & Bhanubhai Patel Institute of Technology'],
@@ -14,7 +16,7 @@ const CoursesUser = () => {
     };
 
     const collegeOptions = {
-        'A. D. Patel Institute of Technology': ['Select your program', 'Information Technology', 'Data Science and Artificial Intelligence', 'Computer Enginnering','Computer Enginnering and Design'],
+        'A. D. Patel Institute of Technology': ['Select your program', 'Information Technology', 'Data Science and Artificial Intelligence', 'Computer Enginnering', 'Computer Enginnering and Design'],
         'G H Patel College of Engineering & Technology': ['Select your program', 'Information Technology', 'Computer Enginnering'],
         'Madhuben & Bhanubhai Patel Institute of Technology': ['Select your program', 'Information Technology', 'Computer Enginnering'],
         // Add other program options
@@ -23,8 +25,8 @@ const CoursesUser = () => {
         event.preventDefault();
         try {
             console.log("Selected College:", selectedProgram);
-            console.log("Selected Program:",  selectedCollege);
-    
+            console.log("Selected Program:", selectedCollege);
+
             // Check if both selectedCollege and selectedProgram are available
             if (selectedCollege && selectedProgram) {
                 const result = await axios.get(`http://localhost:5000/getusercourse`, {
@@ -42,8 +44,8 @@ const CoursesUser = () => {
             console.error(error);
         }
     };
-    
-    
+
+
 
 
 
@@ -64,6 +66,11 @@ const CoursesUser = () => {
         const collegeValue = event.target.value;
         setSelectedCollege(collegeValue);
     };
+
+    const handleviewcourseClick = (courseId) => {
+        // Navigate to the "additem" route with the specific course ID
+        navigate(`/user/viewcourse/${courseId}`);
+      };
 
     // const handleSubmit = (event) => {
     //     event.preventDefault();
@@ -92,6 +99,7 @@ const CoursesUser = () => {
                         <h1 className="text-white text-[70px] font-black tblt:text-3xl">
                             A LEGACY OF KNOWLEDGE
                         </h1>
+
                         <p className="text-white mt-8 italic  text-2xl font-bold tracking-tight tblt:text-xl tblt:px-0">
                             A space dedicated to fostering learning, exploration, innovation, creative expression, and meaningful discourse.{" "}
                         </p>
@@ -173,15 +181,17 @@ const CoursesUser = () => {
                             alt={singleCourse._id}
                         />
 
+
                         <div className="p-4">
                             <h4 className="text-xl font-semibold tracking-tight text-blue-600">
                                 {singleCourse.name}
                             </h4>
+                            <h1>{singleCourse._id}</h1>
                             <p className="mb-2 leading-normal text-gray-700">
                                 {singleCourse.category} <br />
                                 {singleCourse.description}
                             </p>
-                            <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow">
+                            <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow" onClick={() => handleviewcourseClick(singleCourse._id)}>
                                 View Coures
                             </button>
                         </div>
