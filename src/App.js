@@ -13,6 +13,7 @@ import Coordinator from "./Pages/coordinator/index.jsx";
 import ContactUs from "./Pages/user/contact.jsx";
 import CoursesUser from "./Pages/user/couresuser.jsx";
 import UserProfile from "./Pages/user/UserProfile.jsx";
+import ViewCourse from "./Pages/user/viewcourse.jsx";
 
 
 //coordinator
@@ -38,13 +39,14 @@ function App() {
           <Route path="contactus" element={<ContactUs />} />
           <Route path="courses" element={<CoursesUser />} />
           <Route path="profile" element={<UserProfile />} />
+          <Route path="viewcourse/:courseId" element={<ViewCourse />} />
         </Route>
         <Route path="/coordinator" element={<Coordinator />}>
           <Route path="home" element={<CoordinatorHome />} />
           <Route path="listcourse" element={<ListCourse />} />
           <Route path="contact" element={<Contact />} />
           <Route path="profile" element={<Coprofile />} />
-          <Route path="additem" element={<Additem />} />
+          <Route path="additem/:courseId" element={<Additem />} />
 
 
 
