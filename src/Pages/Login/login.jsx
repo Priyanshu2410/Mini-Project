@@ -18,7 +18,7 @@ const Login = () => {
       console.log(result.data);
       if (result.status === 200) {
         localStorage.setItem("data", JSON.stringify(result.data));
-        if(result.data.role === " ")
+        if(result.data.role === "coordinator")
         {
           navigate("/coordinator/home");
         }

@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Courses = () => {
+    const navigate = useNavigate();
     const courseData = [
         {
             title: "Introduction to React 1",
@@ -35,6 +37,10 @@ const Courses = () => {
         // Add more course data as needed
     ];
 
+    const nevicoures = () => {
+        navigate("/user/courses");
+    }
+
     return (
         <div className="mt-[40px]">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -53,7 +59,7 @@ const Courses = () => {
 
     {/* Explore More Button */}
     <div className="flex justify-center mt-8">
-        <button className="px-6 py-3 text-white bg-gray-800 rounded-md hover:bg-gray-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
+        <button onClick={nevicoures}  className="px-6 py-3 text-white bg-gray-800 rounded-md hover:bg-gray-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
             Explore More
         </button>
     </div>
