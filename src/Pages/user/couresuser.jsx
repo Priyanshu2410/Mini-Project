@@ -75,7 +75,7 @@ const CoursesUser = () => {
     };
 
 
-    const handleenrollcourseClick = async (courseId, courseName) => {
+    const handleenrollcourseClick = async (courseId, courseName,courseimage,coursecategory,coursedescription) => {
         try {
             // Retrieve userId from localStorage
             const userData = JSON.parse(localStorage.getItem("data"));
@@ -88,7 +88,12 @@ const CoursesUser = () => {
             const enrollData = {
                 courseId: courseId,
                 userId: userId,
-                courseName: courseName, // Include the course name in the payload
+                courseName: courseName,
+                courseimage:courseimage,
+                coursecategory:coursecategory,
+                coursedescription:coursedescription,
+                
+                 // Include the course name in the payload
                 // Add other relevant data to be stored in the enroll collection
             };
 
@@ -245,7 +250,7 @@ const CoursesUser = () => {
 
 
                             ) : (
-                                <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow" onClick={() => handleenrollcourseClick(singleCourse._id, singleCourse.name)}>
+                                <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow" onClick={() => handleenrollcourseClick(singleCourse._id, singleCourse.name,singleCourse.image,singleCourse.category,singleCourse.description)}>
                                     Enroll in {singleCourse.name}
                                 </button>
                             )}

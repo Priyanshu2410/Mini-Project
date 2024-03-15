@@ -14,6 +14,7 @@ import ContactUs from "./Pages/user/contact.jsx";
 import CoursesUser from "./Pages/user/couresuser.jsx";
 import UserProfile from "./Pages/user/UserProfile.jsx";
 import ViewCourse from "./Pages/user/viewcourse.jsx";
+import Yourcourse from "./Pages/user/yourcourse.jsx";
 
 
 //coordinator
@@ -40,6 +41,7 @@ function App() {
           <Route path="courses" element={<CoursesUser />} />
           <Route path="profile" element={<UserProfile />} />
           <Route path="viewcourse/:courseId" element={<ViewCourse />} />
+          <Route path="yourcourse" element={<Yourcourse />} />
         </Route>
         <Route path="/coordinator" element={<Coordinator />}>
           <Route path="home" element={<CoordinatorHome />} />
