@@ -58,6 +58,7 @@ const UserProfile = () => {
     setshow(false);
     alert("profile update successfully");
   };
+
   return (
     <div className="pt-[100px] ">
       <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden mb-8">
