@@ -27,10 +27,12 @@ const CoursesUser = () => {
             console.log("Selected College:", selectedProgram);
             console.log("Selected Program:", selectedCollege);
 
-            // Check if both selectedCollege and selectedProgram are available
+
+            const userData = JSON.parse(localStorage.getItem("data"));
             if (selectedCollege && selectedProgram) {
                 const result = await axios.get(`http://localhost:5000/getusercourse`, {
                     params: {
+                        userId: userData._id, // Pass user ID to backend
                         coordinatorDept: selectedCollege,
                         coordinatorClg: selectedProgram,
                     },
@@ -70,7 +72,45 @@ const CoursesUser = () => {
     const handleviewcourseClick = (courseId) => {
         // Navigate to the "additem" route with the specific course ID
         navigate(`/user/viewcourse/${courseId}`);
-      };
+    };
+
+
+    const handleenrollcourseClick = async (courseId, courseName) => {
+        try {
+            // Retrieve userId from localStorage
+            const userData = JSON.parse(localStorage.getItem("data"));
+            if (!userData || !userData._id) {
+                throw new Error("User data not found in localStorage.");
+            }
+            const userId = userData._id;
+
+            // Prepare data payload
+            const enrollData = {
+                courseId: courseId,
+                userId: userId,
+                courseName: courseName, // Include the course name in the payload
+                // Add other relevant data to be stored in the enroll collection
+            };
+
+            // Send POST request to store data in enroll collection
+            const response = await axios.post('http://localhost:5000/enroll', enrollData);
+
+            // Handle success response
+            console.log("Enrollment successful:", response.data);
+            // Optionally, update UI or display a success message to the user
+
+        } catch (error) {
+            // Handle error
+            console.error("Error enrolling course:", error);
+            // Optionally, display an error message to the user
+        }
+    };
+
+    const handleviewcourse = (courseId) => {
+        // Navigate to the "additem" route with the specific course ID
+        navigate(`/user/viewcourse/${courseId}`);
+    };
+
 
     // const handleSubmit = (event) => {
     //     event.preventDefault();
@@ -191,14 +231,28 @@ const CoursesUser = () => {
                                 {singleCourse.category} <br />
                                 {singleCourse.description}
                             </p>
-                            <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow" onClick={() => handleviewcourseClick(singleCourse._id)}>
-                                View Coures
-                            </button>
+                            {singleCourse.isEnrolled ? (
+                                <div>
+                                    <button className="px-4 py-2 text-sm text-white bg-gray-500 rounded shadow cursor-not-allowed">
+                                        Enrolled
+                                    </button>
+                                    <button className=" ml-5 px-4 py-2 text-sm text-white bg-blue-500 rounded shadow cursor" onClick={()=> handleviewcourse(singleCourse._id)}>
+                                        View Course
+                                    </button>
+                                </div>
+
+
+
+
+                            ) : (
+                                <button className="px-4 py-2 text-sm text-white bg-blue-500 rounded shadow" onClick={() => handleenrollcourseClick(singleCourse._id, singleCourse.name)}>
+                                    Enroll in {singleCourse.name}
+                                </button>
+                            )}
+
                         </div>
                     </div>
                 ))}
-
-
 
                 {/* Repeat this block for each card */}
             </div>
