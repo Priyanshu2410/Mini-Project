@@ -8,12 +8,15 @@ const QuizList = () => {
   const [showResult, setShowResult] = useState(false);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+  const [correctAnswers, setCorrectAnswers] = useState([]);
 
   useEffect(() => {
     const fetchQuizzes = async () => {
       try {
         const response = await axios.get("http://localhost:5000/api/quizzes");
         setQuizzes(response.data);
+        // Initialize correctAnswers array with same length as quizzes array
+        setCorrectAnswers(new Array(response.data.length).fill(false));
       } catch (error) {
         console.error("Error fetching quizzes:", error);
       }
@@ -37,6 +40,12 @@ const QuizList = () => {
       setShowResult(true);
       if (index === quizzes[currentQuestionIndex].correctOption) {
         setScore((prevScore) => prevScore + 1);
+        // Mark the question as answered correctly
+        setCorrectAnswers((prevCorrectAnswers) => {
+          const updatedAnswers = [...prevCorrectAnswers];
+          updatedAnswers[currentQuestionIndex] = true;
+          return updatedAnswers;
+        });
       }
     }
   };
@@ -47,7 +56,7 @@ const QuizList = () => {
     <div className="container mx-auto py-8 h-full flex justify-center items-center">
       <div className="w-full max-w-lg">
         <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-3xl font-bold mb-4">Quiz</h2>
+          <h2 className="text-3xl font-bold mb-4">Quiz List</h2>
           {!showScore && quizzes.length > 0 && (
             <div>
               <h3 className="text-xl font-semibold mb-2">{`Question ${
@@ -57,15 +66,28 @@ const QuizList = () => {
                 {quizzes[currentQuestionIndex].options.map((option, index) => (
                   <li
                     key={index}
-                    className={`ml-4 ${
+                    className={`ml-4 cursor-pointer border rounded p-2 ${
                       selectedOption === index
                         ? "font-bold cursor-not-allowed"
-                        : "cursor-pointer"
+                        : ""
+                    } ${
+                      showResult &&
+                      selectedOption === index &&
+                      index !== quizzes[currentQuestionIndex].correctOption
+                        ? "bg-red-200"
+                        : ""
+                    } ${
+                      showResult &&
+                      index === quizzes[currentQuestionIndex].correctOption
+                        ? "bg-green-200"
+                        : ""
                     }`}
                     onClick={() => handleOptionSelect(index)}
                   >
-                    <span className="mr-2">{optionsLetters[index]}</span>
-                    {option}
+                    <div>
+                      <span className="mr-2">{optionsLetters[index]}</span>
+                      {option}
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -93,10 +115,26 @@ const QuizList = () => {
             </div>
           )}
           {showScore && (
-            <p className="mt-2">
-              Your score: {score}/{quizzes.length}
-              <br></br>({((score / quizzes.length) * 100).toFixed(2)}%)
-            </p>
+            <div>
+              <p className="mt-2">
+                Your score: {((score / quizzes.length) * 100).toFixed(2)}%
+              </p>
+              <h3 className="text-xl font-semibold mt-4 mb-2">
+                Correct Answers:
+              </h3>
+              <ul>
+                {quizzes.map((quiz, index) => (
+                  <li
+                    key={index}
+                    className={`ml-4 ${
+                      correctAnswers[index] ? "text-green-600" : "text-red-600"
+                    }`}
+                  >
+                    Question {index + 1}: {quiz.options[quiz.correctOption]}
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </div>
       </div>
