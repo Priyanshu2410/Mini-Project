@@ -9,6 +9,7 @@ const QuizList = () => {
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState([]);
+  const [disableNext, setDisableNext] = useState(true);
 
   useEffect(() => {
     const fetchQuizzes = async () => {
@@ -32,21 +33,21 @@ const QuizList = () => {
     }
     setSelectedOption(null);
     setShowResult(false);
+    setDisableNext(true);
   };
 
   const handleOptionSelect = (index) => {
-    if (selectedOption === null) {
-      setSelectedOption(index);
-      setShowResult(true);
-      if (index === quizzes[currentQuestionIndex].correctOption) {
-        setScore((prevScore) => prevScore + 1);
-        // Mark the question as answered correctly
-        setCorrectAnswers((prevCorrectAnswers) => {
-          const updatedAnswers = [...prevCorrectAnswers];
-          updatedAnswers[currentQuestionIndex] = true;
-          return updatedAnswers;
-        });
-      }
+    setSelectedOption(index);
+    setShowResult(true);
+    setDisableNext(false);
+    if (index === quizzes[currentQuestionIndex].correctOption) {
+      setScore((prevScore) => prevScore + 1);
+      // Mark the question as answered correctly
+      setCorrectAnswers((prevCorrectAnswers) => {
+        const updatedAnswers = [...prevCorrectAnswers];
+        updatedAnswers[currentQuestionIndex] = true;
+        return updatedAnswers;
+      });
     }
   };
 
@@ -72,14 +73,14 @@ const QuizList = () => {
                         : ""
                     } ${
                       showResult &&
-                      selectedOption === index &&
-                      index !== quizzes[currentQuestionIndex].correctOption
-                        ? "bg-red-200"
+                      index === quizzes[currentQuestionIndex].correctOption
+                        ? "bg-green-200"
                         : ""
                     } ${
                       showResult &&
-                      index === quizzes[currentQuestionIndex].correctOption
-                        ? "bg-green-200"
+                      selectedOption === index &&
+                      index !== quizzes[currentQuestionIndex].correctOption
+                        ? "bg-red-200"
                         : ""
                     }`}
                     onClick={() => handleOptionSelect(index)}
@@ -107,8 +108,11 @@ const QuizList = () => {
                 </p>
               )}
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+                className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 ${
+                  disableNext ? "opacity-50 cursor-not-allowed" : ""
+                }`}
                 onClick={handleNextQuestion}
+                disabled={disableNext}
               >
                 Next
               </button>
