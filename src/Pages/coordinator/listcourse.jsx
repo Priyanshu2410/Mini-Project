@@ -101,7 +101,6 @@ const ListCourse = () => {
           discover the diverse range of courses offered by our faculty.
         </p>
       </div>
-
       <div className="container mx-auto mt-10 py-[30px] px-[30px] items-center justify-center bg-gray-100 rounded-lg shadow-md">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold text-gray-800">
