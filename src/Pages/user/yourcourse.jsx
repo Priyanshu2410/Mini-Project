@@ -12,26 +12,6 @@ const Yourcourse = () => {
     const userData = JSON.parse(localStorage.getItem("data"));
     setUser(userData);
 
-<<<<<<< HEAD
-        // Fetch enrolled courses for the current user from the backend
-        const fetchEnrolledCourses = async () => {
-            try {
-                const response = await axios.get(`http://localhost:5000/getuserenrolledcourses/${userData._id}`);
-                setEnrolledCourses(response.data.data);
-                console.log("Enrolled Courses:", response.data.data); 
-            } catch (error) {
-                console.error("Error fetching enrolled courses:", error);
-                navigate('/login');
-            }
-        };
-
-        fetchEnrolledCourses();
-    }, []);
-
-    const handleviewcourse = (courseId) => {
-        // Navigate to the "additem" route with the specific course ID
-        navigate(`/user/viewcourse/${courseId}`);
-=======
     // Fetch enrolled courses for the current user from the backend
     const fetchEnrolledCourses = async () => {
       try {
@@ -43,7 +23,6 @@ const Yourcourse = () => {
       } catch (error) {
         console.error("Error fetching enrolled courses:", error);
       }
->>>>>>> 09df05f47c9cebafb5dd624e6f3829ffb33f6312
     };
 
     fetchEnrolledCourses();
