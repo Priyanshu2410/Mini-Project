@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import RunSidebar from "../../component/runsidebar";
 import Coures from "./coures";
 import Faq from "../../component/faq";
+import axios from "axios";
 
+
+axios.defaults.withCredentials = true;
 const Home = () => {
   const [user, setUser] = useState({});
 

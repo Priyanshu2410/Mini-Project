@@ -8,13 +8,21 @@ import axios from "axios";
 
 const Additem = () => {
     const { courseId } = useParams();
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+    const [isMaterialModalOpen, setIsMaterialModalOpen] = useState(false);
     const [videos, setVideos] = useState([]);
+    const [materials, setMaterials] = useState([]);
+
+    const [title, setTitle] = useState("");
+    const [file, setFile] = useState("");
 
 
+    const toggleVideoModal = () => {
+        setIsVideoModalOpen(!isVideoModalOpen);
+    };
 
-    const toggleModal = () => {
-        setIsModalOpen(!isModalOpen);
+    const toggleMaterialModal = () => {
+        setIsMaterialModalOpen(!isMaterialModalOpen);
     };
     const getYouTubeVideoId = (url) => {
         const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
@@ -50,6 +58,28 @@ const Additem = () => {
             toast.error("Error uploading video. Please try again.");
         }
     };
+
+    const submitmaterial = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("file", file);
+        console.log(title, file);
+    
+        const result = await axios.post(
+          "http://localhost:5000/upload-files",
+          formData,
+          {
+            headers: { "Content-Type": "multipart/form-data" },
+          }
+        );
+        console.log(result);
+        if (result.data.status == "ok") {
+          alert("Uploaded Successfully!!!");
+        //   getPdf();
+        }
+      };
+
 
     const getVideo = async () => {
         try {
@@ -88,14 +118,14 @@ const Additem = () => {
                         Your Existing Videos
                     </h1>
                     <button
-                        onClick={toggleModal}
+                        onClick={toggleVideoModal}
                         className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                         type="button"
                     >
                         Add New Video
                     </button>
 
-                    {isModalOpen && (
+                    {isVideoModalOpen && (
                         <div
                             id="crud-modal"
                             tabIndex="-1"
@@ -105,7 +135,7 @@ const Additem = () => {
                             <div className="flex items-center justify-center min-h-screen">
                                 <div
                                     className="fixed inset-0 bg-black opacity-50"
-                                    onClick={toggleModal}
+                                    onClick={toggleVideoModal}
                                 ></div>
                                 <div className="relative p-4 w-full max-w-md">
                                     {/* Modal content */}
@@ -117,7 +147,7 @@ const Additem = () => {
                                             </h3>
                                             <button
                                                 type="button"
-                                                onClick={toggleModal}
+                                                onClick={toggleVideoModal}
                                                 className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                                             >
                                                 <svg
@@ -207,14 +237,89 @@ const Additem = () => {
                         Your Existing Materials
                     </h1>
                     <button
-                        // onClick={toggleModal}
+                        onClick={toggleMaterialModal}
                         className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                         type="button"
                     >
-                        Add New Materials
+                        Add New Material
                     </button>
                 </div>
             </div>
+
+            {/* Modal for adding new material */}
+            {isMaterialModalOpen && (
+                <div
+                    id="crud-modal"
+                    tabIndex="-1"
+                    aria-hidden="true"
+                    className="fixed inset-0 z-50 overflow-y-auto"
+                >
+                    <div className="flex items-center justify-center min-h-screen">
+                        <div
+                            className="fixed inset-0 bg-black opacity-50"
+                            onClick={toggleMaterialModal}
+                        ></div>
+                        <div className="relative p-4 w-full max-w-md">
+                            {/* Modal content */}
+                            <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                {/* Modal header */}
+                                <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                                        Add New Material
+                                    </h3>
+                                    <button
+                                        type="button"
+                                        onClick={toggleMaterialModal}
+                                        className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                    >
+                                        <svg
+                                            className="w-3 h-3"
+                                            aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 14 14"
+                                        >
+                                            <path
+                                                stroke="currentColor"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth="2"
+                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                                            />
+                                        </svg>
+                                        <span className="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                {/* Modal body */}
+                                <form className="p-4 md:p-5 "
+                                    onSubmit={submitmaterial}
+                                >
+                                    {/* Form fields for adding new material */}
+                                    <div className="grid gap-4 mb-4 grid-cols-2">
+                                        <div className="col-span-2">
+                                            <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                                            <input  onChange={(e) => setTitle(e.target.value)} type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type material name" required="" />
+                                        </div>
+                                        <div className="col-span-2">
+                                            <label htmlFor="description"></label>
+                                        </div>
+                                        <div className="col-span-2">
+                                            <label htmlFor="Material" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload Material</label>
+                                            <input onChange={(e) => setFile(e.target.files[0])}  type="file" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" accept="application/pdf" placeholder="Type material name" required="" />
+                                        </div>
+                                    </div>
+                                    <button type="submit" className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        <svg className="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd"></path></svg>
+                                        Add new material
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            <ToastContainer />
         </div>
     );
 };

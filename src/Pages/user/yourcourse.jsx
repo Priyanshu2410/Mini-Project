@@ -17,9 +17,10 @@ const Yourcourse = () => {
             try {
                 const response = await axios.get(`http://localhost:5000/getuserenrolledcourses/${userData._id}`);
                 setEnrolledCourses(response.data.data);
-                console.log("Enrolled Courses:", response.data.data);
+                console.log("Enrolled Courses:", response.data.data); 
             } catch (error) {
                 console.error("Error fetching enrolled courses:", error);
+                navigate('/login');
             }
         };
 
