@@ -61,13 +61,13 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="mt-[20px] text-center">
+      <div className="mt-[40px] text-center">
         <h1 className="text-4xl font-bold text-gray-700 transition-all duration-300 hover:text-[#1a4e63] hover:transform hover:translate-y-1">
           Collage of Brilliance: Where Expert Minds Converge
         </h1>
         <RunSidebar />
       </div>
-      <div class="text-center">
+      <div class="text-center mt-[120px]">
         <p class="font-bold text-xl">Companies Where Our Students Work</p>
         <p class="text-lg">
           At our education platform, we take pride in our students' success.
@@ -78,7 +78,7 @@ const Home = () => {
         </p>
       </div>
 
-      <div className="mt-[80px] ">
+      <div className="mt-[120px] ">
         <div className="grid grid-cols-5 gap-4">
           {logos.map((logo) => (
             <div key={logo.id} className="flex justify-center items-center">
@@ -87,13 +87,13 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <div className="mt-[100px] text-center">
+      <div className="mt-[120px] text-center">
         <h1 className="text-4xl font-bold text-gray-700 transition-all duration-300 hover:text-[#1a4e63] hover:transform hover:translate-y-1">
           Mastery Series: Elevate Your Expertise
         </h1>
         <Coures />
       </div>
-      <div class="flex justify-between items-center mt-11">
+      <div class="flex justify-between items-center mt-[80px]">
         <div class="ml-20 flex items-center">
           <img src="/at_the_rate_icon.png" alt="Logo" class="w-24 h-24 mr-6" />
           <p class="text-[50px] font-semibold">
