@@ -12,9 +12,14 @@ const Additem = () => {
     const [isMaterialModalOpen, setIsMaterialModalOpen] = useState(false);
     const [videos, setVideos] = useState([]);
     const [materials, setMaterials] = useState([]);
+    const [pdfFile, setPdfFile] = useState(null);
 
     const [title, setTitle] = useState("");
     const [file, setFile] = useState("");
+    useEffect(() => {
+        getVideo();
+        getPdf();
+    }, []);
 
 
     const toggleVideoModal = () => {
@@ -59,26 +64,37 @@ const Additem = () => {
         }
     };
 
-     const submitmaterial = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("file", file);
-    console.log(title, file);
+    const submitmaterial = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("file", file);
+        console.log(title, file);
 
-    const result = await axios.post(
-      "http://localhost:5000/upload-files",
-      formData,
-      {
-        headers: { "Content-Type": "multipart/form-data" },
-      }
-    );
-    console.log(result);
-    if (result.data.status == "ok") {
-      alert("Uploaded Successfully!!!");
-    //   getPdf();
-    }
-  };
+        const result = await axios.post(
+            "http://localhost:5000/upload-files",
+            formData,
+            {
+                headers: { "Content-Type": "multipart/form-data" },
+            }
+        );
+        console.log(result);
+        if (result.data.status == "ok") {
+            toast.success("Material added successfully!");
+            window.location.reload();
+            getPdf();
+        }
+    };
+
+    const getPdf = async () => {
+        try {
+            const result = await axios.get("http://localhost:5000/get-files");
+            console.log(result.data.data);
+            setMaterials(result.data.data);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
 
 
     const getVideo = async () => {
@@ -91,15 +107,18 @@ const Additem = () => {
         }
     };
 
-    useEffect(() => {
-        getVideo();
-    }, []);
+
 
 
     const youtubeWatchUrl = videos.youtubeLink || '';
     const youtubeVideoId = youtubeWatchUrl ? getYouTubeVideoId(youtubeWatchUrl) : '';
     const youtubeEmbedUrl = youtubeVideoId ? `https://www.youtube.com/embed/${youtubeVideoId}` : '';
 
+
+    const showPdf = (pdf) => {
+        window.open(`http://localhost:5000/Frontend/src/images/${pdf}`, "_blank", "noreferrer");
+        // setPdfFile(`http://localhost:5000/files/${pdf}`)
+    };
 
 
 
@@ -245,6 +264,23 @@ const Additem = () => {
                     </button>
                 </div>
             </div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-4 my-[30px]">
+                {materials.map((material, index) => (
+                    <div key={index} className="rounded-lg shadow-lg bg-white max-w-sm">
+                        {/* Render material details */}
+                        <div className="p-6">
+                            <h5 className="text-gray-900 text-xl font-medium mb-2">{material.title}</h5>
+                            <button
+                                className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                onClick={() => showPdf(material.pdf)}
+                            >
+                                Show Pdf
+                            </button>
+                            {/* Add any additional fields for material rendering */}
+                        </div>
+                    </div>
+                ))}
+            </div>
 
             {/* Modal for adding new material */}
             {isMaterialModalOpen && (
@@ -298,14 +334,14 @@ const Additem = () => {
                                     <div className="grid gap-4 mb-4 grid-cols-2">
                                         <div className="col-span-2">
                                             <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                                            <input  onChange={(e) => setTitle(e.target.value)} type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type material name" required="" />
+                                            <input onChange={(e) => setTitle(e.target.value)} type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type material name" required="" />
                                         </div>
                                         <div className="col-span-2">
                                             <label htmlFor="description"></label>
                                         </div>
                                         <div className="col-span-2">
                                             <label htmlFor="Material" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload Material</label>
-                                            <input onChange={(e) => setFile(e.target.files[0])}  type="file" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" accept="application/pdf" placeholder="Type material name" required="" />
+                                            <input onChange={(e) => setFile(e.target.files[0])} type="file" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" accept="application/pdf" placeholder="Type material name" required="" />
                                         </div>
                                     </div>
                                     <button type="submit" className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -316,7 +352,9 @@ const Additem = () => {
                             </div>
                         </div>
                     </div>
+
                 </div>
+
             )}
 
             <ToastContainer />
