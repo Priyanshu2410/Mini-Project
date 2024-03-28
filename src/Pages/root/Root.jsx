@@ -19,7 +19,7 @@ function Root() {
         <div className="flex justify-center mt-8">
           <button className=" mr-5 px-7 py-2.5 font-medium bg-blue-100 hover:bg-blue-100 hover:text-blue-600 text-blue-500 rounded-lg text-sm" onClick={() => navigate("/login")}>Login</button>
 
-          <button className=" px-7 py-2.5 font-medium bg-blue-100 hover:bg-blue-100 hover:text-blue-600 text-blue-500 rounded-lg text-sm" onClick={() => navigate("/login")}>Register</button>
+          <button className=" px-7 py-2.5 font-medium bg-blue-100 hover:bg-blue-100 hover:text-blue-600 text-blue-500 rounded-lg text-sm" onClick={() => navigate("/register")}>Register</button>
         </div>
       </div>
     </div>

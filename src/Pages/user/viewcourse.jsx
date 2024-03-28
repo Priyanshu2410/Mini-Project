@@ -9,6 +9,7 @@ const ViewCourse = () => {
   const [status, setStatus] = useState("");
   const [color, setColor] = useState(""); // Changed setcolor to setColor
   const [doneVideosCount, setVideoCount] = useState(0);
+  const [materials, setMaterials] = useState([]);
   // let doneVideosCount = 0;
 
   const id = JSON.parse(localStorage.getItem("data"))._id;
@@ -83,6 +84,7 @@ const ViewCourse = () => {
 
   useEffect(() => {
     getVideo();
+    getPdf();
     // getprogress();
   }, []);
 
@@ -114,6 +116,19 @@ const ViewCourse = () => {
   //     doneVideosCount++; // Increment the counter
   //   }
   // });
+
+  const getPdf = async () => {
+    try {
+        const result = await axios.get(`http://localhost:5000/get-files?courseID=${courseId}`);
+        console.log(result.data.data);
+        setMaterials(result.data.data);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+};
+const showPdf = (pdf) => {
+  window.open(`http://localhost:5000/pdfs/${pdf}`, "_blank", "noreferrer");
+};
 
   return (
     <>
@@ -216,6 +231,36 @@ const ViewCourse = () => {
               )}
             </div>
           ))}
+        </div>
+        <div className="container mx-auto mt-10 py-[30px] px-[30px] items-center justify-center bg-gray-100 rounded-lg shadow-md">
+          <div className="flex items-center justify-between">
+            <h1 className="text-3xl font-bold text-gray-800 text-center">
+              Available Material
+              {/* <div>{userdata[0].progress["65f344a80c8dec8dfada324f"]}</div> */}
+              
+                
+                
+              
+            </h1>
+            
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-4 my-[30px]">
+                {materials.map((material, index) => (
+                    <div key={index} className="rounded-lg shadow-lg bg-white max-w-sm">
+                        {/* Render material details */}
+                        <div className="p-6">
+                            <h5 className="text-gray-900 text-xl font-medium mb-2">{material.title}</h5>
+                            <button
+                                className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                onClick={() => showPdf(material.pdf)}
+                            >
+                                Show Pdf
+                            </button>
+                            {/* Add any additional fields for material rendering */}
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
       </div>
     </>

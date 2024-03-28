@@ -91,7 +91,7 @@ const Additem = () => {
 
     const getPdf = async () => {
         try {
-            const result = await axios.get("http://localhost:5000/get-files");
+            const result = await axios.get(`http://localhost:5000/get-files?courseID=${courseId}`);
             console.log(result.data.data);
             setMaterials(result.data.data);
         } catch (error) {
@@ -119,9 +119,8 @@ const Additem = () => {
 
 
     const showPdf = (pdf) => {
-        window.open(`http://localhost:5000/Frontend/src/images/${pdf}`, "_blank", "noreferrer");
-        // setPdfFile(`http://localhost:5000/files/${pdf}`)
-    };
+        window.open(`http://localhost:5000/pdfs/${pdf}`, "_blank", "noreferrer");
+      };
 
 
 
