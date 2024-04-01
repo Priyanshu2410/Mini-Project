@@ -231,7 +231,7 @@ const CoursesUser = () => {
                             <h4 className="text-xl font-semibold tracking-tight text-blue-600">
                                 {singleCourse.name}
                             </h4>
-                            <h1>{singleCourse._id}</h1>
+                            {/* <h1>{singleCourse._id}</h1> */}
                             <p className="mb-2 leading-normal text-gray-700">
                                 {singleCourse.category} <br />
                                 {singleCourse.description}

@@ -265,7 +265,7 @@ const ListCourse = () => {
             key={singleCourse._id}
             className="w-full p-2 rounded-lg border border-gray-300 shadow-xl"
           >
-            <h1>{singleCourse._id}</h1>
+            {/* <h1>{singleCourse._id}</h1> */}
             <img
               key={singleCourse._id}
               className="object-cover w-full h-40 rounded-t-lg"

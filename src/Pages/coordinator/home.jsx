@@ -5,7 +5,7 @@ import Faq from "../../component/faq";
 
 
 const Home = () => {
-    const [user, setUser] = useState({});
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     // Fetch user data from the server or check session status
@@ -14,7 +14,7 @@ const Home = () => {
     // console.log(localStorage.getItem("data"));
   }, []);
   return (<>
-    
+
     <div>
       <div className="pt-[87px] bg-[#cfcece] bg-opacity-80 h-[800px] ">
         <div className="flex mt-10 ml-5">
@@ -27,17 +27,22 @@ const Home = () => {
 
 
         </div>
-          <p className="text-gray-600 text-2xl p-5">
+        <p className="text-gray-600 text-2xl p-5">
           Thank you for your dedication to our college. Explore the resources and information below.
         </p>
-        <div className="flex  items-center font-sans mt-[50px]">
+        <div className="flex items-center font-sans ml-[20px] mt-[50px]">
           <div className="flex flex-col items-center">
-            <h1 className="text-[70px] font-bold max-w-[800px]">Learn today’s most in-demand
-              skills with our free online
-              courses</h1>
-            <button className="bg-[#3047b8] text-white font-bold text-xl px-5 py-3 rounded-full max-w-[300px] mt-5">Explore Our Best courses</button>
+            <h1 className="text-[70px] font-bold max-w-[800px]">Upload New Courses and Manage Existing Ones</h1>
+            <a href="/coordinator/listcourse" className="bg-[#3047b8] text-white font-bold text-xl px-5 py-3 rounded-full max-w-[300px] mt-5">Manage Courses</a>
           </div>
+          <img
+            src="/corredinator-removebg-preview.png"
+            alt=""
+            className="ml-5 w-[700px] "
+          />
+
         </div>
+
 
 
 
@@ -49,12 +54,7 @@ const Home = () => {
         </h1>
         <RunSidebar />
       </div>
-      <div className="mt-[20px] text-center">
-        <h1 className="text-4xl font-bold text-gray-700 transition-all duration-300 hover:text-[#1a4e63] hover:transform hover:translate-y-1">
-          Mastery Series: Elevate Your Expertise
-        </h1>
-        
-      </div>
+
       <div className="mt-[90px] text-center">
 
         <Faq />
@@ -64,10 +64,10 @@ const Home = () => {
 
     </div>
 
-    
 
 
-    </>);
+
+  </>);
 };
 
 export default Home;

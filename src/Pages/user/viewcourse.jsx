@@ -137,7 +137,7 @@ const showPdf = (pdf) => {
           <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
             Your Course
           </h1>
-          <h1>Add Item for Course ID: {courseId}</h1>
+          {/* <h1>Add Item for Course ID: {courseId}</h1> */}
         </div>
         <div className="container mx-auto mt-10 py-[30px] px-[30px] items-center justify-center bg-gray-100 rounded-lg shadow-md">
           <div className="flex items-center justify-between">
