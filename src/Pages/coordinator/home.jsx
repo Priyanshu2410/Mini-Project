@@ -39,7 +39,7 @@ const Home = () => {
             src="/corredinator-removebg-preview.png"
             alt=""
             className="ml-5 w-[700px] "
-          />
+          /> 
 
         </div>
 
